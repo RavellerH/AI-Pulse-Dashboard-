@@ -43,15 +43,21 @@ jobs:
           key: x-cookies-${{ secrets.X_USERNAME }}
 
       - name: Sync X posts
+        id: sync
+        continue-on-error: true          # deploy with existing data if sync fails
         env:
           X_USERNAME: ${{ secrets.X_USERNAME }}
           X_EMAIL: ${{ secrets.X_EMAIL }}
           X_PASSWORD: ${{ secrets.X_PASSWORD }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # optional
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python -m sync.sync
 
+      - name: Report sync status
+        if: steps.sync.outcome == 'failure'
+        run: echo "⚠️ X sync failed — deploying with existing data. Check logs above for the error."
+
       - name: Save X session cookies
-        if: steps.cache-cookies.outputs.cache-hit != 'true'
+        if: steps.sync.outcome == 'success' && steps.cache-cookies.outputs.cache-hit != 'true'
         uses: actions/cache/save@v4
         with:
           path: sync/.cookies.json
