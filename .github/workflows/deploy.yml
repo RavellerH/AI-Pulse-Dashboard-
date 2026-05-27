@@ -1,8 +1,14 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages (code changes)
 
 on:
   push:
     branches: [main]
+    paths:
+      - 'src/**'
+      - 'index.html'
+      - 'vite.config.ts'
+      - 'tailwind.config.js'
+      - 'package*.json'
   workflow_dispatch:
 
 permissions:

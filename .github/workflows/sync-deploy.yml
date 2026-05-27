@@ -1,0 +1,86 @@
+name: Sync X + Deploy
+
+on:
+  schedule:
+    - cron: '0 * * * *'   # every hour at :00
+  workflow_dispatch:        # manual trigger from Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  sync-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── Python: fetch X posts ──────────────────────────────────────────────
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install sync dependencies
+        run: pip install -r sync/requirements.txt
+
+      - name: Restore X session cookies
+        id: cache-cookies
+        uses: actions/cache@v4
+        with:
+          path: sync/.cookies.json
+          key: x-cookies-${{ secrets.X_USERNAME }}
+
+      - name: Sync X posts
+        env:
+          X_USERNAME: ${{ secrets.X_USERNAME }}
+          X_EMAIL: ${{ secrets.X_EMAIL }}
+          X_PASSWORD: ${{ secrets.X_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # optional
+        run: python -m sync.sync
+
+      - name: Save X session cookies
+        if: steps.cache-cookies.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: sync/.cookies.json
+          key: x-cookies-${{ secrets.X_USERNAME }}
+
+      # ── Node: build Vite app ───────────────────────────────────────────────
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      # ── Deploy to GitHub Pages ─────────────────────────────────────────────
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
