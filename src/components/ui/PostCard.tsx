@@ -74,14 +74,18 @@ export default function PostCard({ post, compact = false }: PostCardProps) {
           {post.engagement.reposts > 0 && (
             <span title="Reposts">↺ {fmtNum(post.engagement.reposts)}</span>
           )}
-          <a
-            href={post.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:text-accent-hover"
-          >
-            View →
-          </a>
+          {isRealUrl(post.url) ? (
+            <a
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:text-accent-hover"
+            >
+              View →
+            </a>
+          ) : (
+            <span className="text-text-muted line-through" title="Live link available after sync">View →</span>
+          )}
         </div>
       </div>
     </div>
@@ -135,4 +139,9 @@ function formatTime(iso: string): string {
 function fmtNum(n: number): string {
   if (n >= 1000) return `${(n / 1000).toFixed(1)}k`
   return String(n)
+}
+
+function isRealUrl(url: string): boolean {
+  const match = url.match(/\/status\/(\d+)$/)
+  return match !== null && match[1].length >= 10
 }
