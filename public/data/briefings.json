@@ -1,0 +1,73 @@
+{
+  "generatedAt": "2026-05-27T09:45:00Z",
+  "briefings": [
+    {
+      "id": "hourly-2026-05-27T09",
+      "window": "1h",
+      "title": "Hourly Pulse — 09:00–10:00",
+      "generatedAt": "2026-05-27T09:45:00Z",
+      "summary": "A strong signals hour dominated by frontier model updates. GPT-5 crosses 1M context, o3-mini launches at lower cost, and nanoGPT v2 ships with speed improvements. On the builder side, Matt Shumer's autonomous deployment agent is drawing substantial engagement.",
+      "highlights": [
+        "GPT-5 now offers 1M-token context across all paid API tiers — no price increase.",
+        "o3-mini launches: 40% cheaper than o3 with 2x higher rate limits, identical benchmark performance.",
+        "Andrej Karpathy ships nanoGPT v2 with flash attention and 40% A100 speed improvement.",
+        "Matt Shumer demos an end-to-end microservice deployment agent with 70% first-try success rate.",
+        "Gemini 2.5 Pro posts above-human-expert results on 12 chemistry benchmarks."
+      ],
+      "topEntities": ["GPT-5", "o3-mini", "nanoGPT", "Gemini 2.5 Pro", "OpenAI", "Google DeepMind"],
+      "debates": [
+        "Open source vs. closed safety: LeCun and others continue pushing back on closed-model safety claims.",
+        "Benchmark validity: Karpathy questions whether MMLU-optimized models mask genuine capability gaps."
+      ],
+      "recommendedPostIds": ["x_004", "x_012", "x_001", "x_022", "x_020"]
+    },
+    {
+      "id": "daily-2026-05-27",
+      "window": "24h",
+      "title": "Daily Brief — May 27, 2026",
+      "generatedAt": "2026-05-27T09:45:00Z",
+      "summary": "A high-signal day across all tracked groups. Frontier labs made multiple product announcements while the research community responded with both benchmark critiques and genuine milestone results. The builder community is shipping production agent demos at a pace that suggests meaningful capability thresholds have been crossed.",
+      "highlights": [
+        "Three major model updates in 24 hours: GPT-5 context window, o3-mini API access, and Gemini 2.5 Pro chemistry results.",
+        "OpenAI Operator reaches browser-native agent capability — forms, bookings, navigation with consent gates.",
+        "Solo founders reporting MRR milestones ($23k, 500k users) enabled by AI leverage, providing rare concrete data.",
+        "Multi-agent orchestration patterns are emerging as a serious sub-discipline: context management identified as primary failure mode.",
+        "Open-source reasoning models now competitive with GPT-4o on benchmarks, per Reflection-Llama results.",
+        "JEPA self-supervised video understanding advances without language supervision, challenging the multimodal assumption.",
+        "Ilya Sutskever interview announced — first extended public conversation since OpenAI departure."
+      ],
+      "topEntities": ["GPT-5", "OpenAI", "Gemini 2.5", "Claude Code", "Llama 3.1", "JEPA", "Google DeepMind", "Coursera"],
+      "debates": [
+        "Scaling hypothesis viability: Brockman defending the curve against pessimist front-running.",
+        "AI wrapper business models: are distribution moats enough, or is proprietary data required?",
+        "Open source safety: LeCun vs. the closed-model consensus on verifiable safety claims.",
+        "Benchmark validity: MMLU optimization masking spatial reasoning deficits."
+      ],
+      "recommendedPostIds": ["x_004", "x_022", "x_006", "x_021", "x_030", "x_014", "x_007"]
+    },
+    {
+      "id": "weekly-2026-05-27",
+      "window": "7d",
+      "title": "Weekly Digest — May 20–27, 2026",
+      "generatedAt": "2026-05-27T09:45:00Z",
+      "summary": "The week was defined by three converging themes: frontier model capability milestones reaching practical application thresholds, the agent layer beginning to solidify around production patterns, and the solo-founder AI leverage playbook producing measurable business outcomes. Research continued to push on embodied reasoning, materials science, and open-source competitiveness.",
+      "highlights": [
+        "GPT-5 and Gemini 2.5 Pro both posted significant milestone results in the same week.",
+        "Browser-native agent shipping from OpenAI marks the beginning of the consent-gated automation era.",
+        "Context management identified as the primary failure mode for production agents — not model capability.",
+        "Open-source models (Llama, Qwen, Mistral) reaching benchmark parity with closed frontier models on reasoning.",
+        "Materials science AI: AlphaFold-style approaches yielding 2x improvement over DFT on crystal stability.",
+        "AI creative tools outperforming humans in ad performance across 7 of 8 tested accounts.",
+        "Solo founders demonstrating $140/month AI stacks generating $400k+ MRR — the leverage story is quantified."
+      ],
+      "topEntities": ["GPT-5", "Gemini 2.5", "Claude Code", "Llama 3.1", "AlphaFold", "JEPA", "Midjourney v7", "Qwen2.5"],
+      "debates": [
+        "Scaling laws: are we still on the curve or is capability fragmentation masking a plateau?",
+        "Open source vs. closed safety: LeCun's position gaining adherents as verifiability becomes the argument.",
+        "AI wrapper survivability: distribution moats vs. data moats as the real differentiator.",
+        "Benchmark validity: spatial reasoning gaps not captured by current standard evaluations."
+      ],
+      "recommendedPostIds": ["x_004", "x_022", "x_021", "x_030", "x_007", "x_044", "x_014"]
+    }
+  ]
+}

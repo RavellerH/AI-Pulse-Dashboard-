@@ -1,0 +1,336 @@
+{
+  "generatedAt": "2026-05-27T09:45:00Z",
+  "topics": [
+    {
+      "slug": "agents",
+      "label": "Agents",
+      "postCount24h": 18,
+      "summary": "Heavy discussion around autonomous coding agents, multi-agent orchestration patterns, and the first browser-native agents reaching production reliability.",
+      "topHandles": ["@gdb", "@mattshumer_", "@jackfriks", "@vasuman"],
+      "posts": [
+        {
+          "id": "x_022",
+          "platform": "x",
+          "handle": "@gdb",
+          "displayName": "Greg Brockman",
+          "group": "Frontier",
+          "postedAt": "2026-05-27T08:20:00Z",
+          "text": "OpenAI Operator mode can now fill forms, book appointments, and navigate any website in the browser. It asks before consequential actions. This is the beginning of the agent layer.",
+          "summary": "OpenAI Operator ships browser-level agency including form filling, booking, and navigation with consent checkpoints.",
+          "topics": ["agents", "frontier-models"],
+          "intent": "product",
+          "importanceScore": 0.95,
+          "whyItMatters": "Browser-native agents with consent gates marks the practical start of the agentic automation era.",
+          "engagement": { "likes": 14200, "reposts": 3400, "replies": 890, "quotes": 420 },
+          "url": "https://x.com/gdb/status/022"
+        },
+        {
+          "id": "x_028",
+          "platform": "x",
+          "handle": "@jackfriks",
+          "displayName": "jackfriks",
+          "group": "Builders",
+          "postedAt": "2026-05-27T06:30:00Z",
+          "text": "Agentic coding loops: what breaks most often based on 200 hours of running unsupervised agents. The answer is context management, not capability. Here's what I learned.",
+          "summary": "Shares findings from 200 hours of unsupervised agent runs: context management is the primary failure mode, not model capability.",
+          "topics": ["agents", "developer-workflows"],
+          "intent": "education",
+          "importanceScore": 0.87,
+          "engagement": { "likes": 4100, "reposts": 1000, "replies": 240, "quotes": 110 },
+          "url": "https://x.com/jackfriks/status/028"
+        },
+        {
+          "id": "x_037",
+          "platform": "x",
+          "handle": "@vasuman",
+          "displayName": "vasuman",
+          "group": "Builders",
+          "postedAt": "2026-05-26T15:00:00Z",
+          "text": "Multi-agent orchestration patterns after building 20+ production systems: fork-join, sequential, and debate patterns each have specific failure modes.",
+          "summary": "Breaks down multi-agent orchestration patterns from production experience.",
+          "topics": ["agents", "developer-workflows"],
+          "intent": "education",
+          "importanceScore": 0.86,
+          "engagement": { "likes": 3800, "reposts": 960, "replies": 220, "quotes": 110 },
+          "url": "https://x.com/vasuman/status/037"
+        }
+      ]
+    },
+    {
+      "slug": "frontier-models",
+      "label": "Frontier Models",
+      "postCount24h": 22,
+      "summary": "GPT-5 hits 1M context, o3-mini launches at lower cost, and Gemini 2.5 Pro posts expert-level chemistry results. The capability race is accelerating.",
+      "topHandles": ["@sama", "@OfficialLoganK", "@demishassabis", "@gdb"],
+      "posts": [
+        {
+          "id": "x_004",
+          "platform": "x",
+          "handle": "@sama",
+          "displayName": "Sam Altman",
+          "group": "Frontier",
+          "postedAt": "2026-05-27T08:55:00Z",
+          "text": "GPT-5 context window is now 1M tokens in the API for all paid tiers. Writing code that touches your entire codebase in one call is now real. Pricing stays the same.",
+          "summary": "GPT-5 gets a 1M-token context window across all paid API tiers at unchanged pricing.",
+          "topics": ["frontier-models", "developer-workflows"],
+          "intent": "product",
+          "importanceScore": 0.96,
+          "engagement": { "likes": 18400, "reposts": 4200, "replies": 1100, "quotes": 560 },
+          "url": "https://x.com/sama/status/004"
+        },
+        {
+          "id": "x_012",
+          "platform": "x",
+          "handle": "@OfficialLoganK",
+          "displayName": "Logan Kilpatrick",
+          "group": "Frontier",
+          "postedAt": "2026-05-27T09:00:00Z",
+          "text": "o3-mini is now available in the API. 40% cheaper than o3, same reasoning quality on most coding and math benchmarks. Rate limits are 2x higher at launch.",
+          "summary": "o3-mini launches in the API at 40% lower cost than o3 with doubled rate limits.",
+          "topics": ["frontier-models", "developer-workflows"],
+          "intent": "product",
+          "importanceScore": 0.92,
+          "engagement": { "likes": 8800, "reposts": 2100, "replies": 440, "quotes": 210 },
+          "url": "https://x.com/OfficialLoganK/status/012"
+        }
+      ]
+    },
+    {
+      "slug": "developer-workflows",
+      "label": "Developer Workflows",
+      "postCount24h": 19,
+      "summary": "AI-assisted coding hitting real productivity thresholds: full module rewrites overnight, Figma-to-code pipelines at 65% accuracy, and agentic deployment at 70% first-try reliability.",
+      "topHandles": ["@steipete", "@mattshumer_", "@rileybrown", "@jackfriks"],
+      "posts": [
+        {
+          "id": "x_025",
+          "platform": "x",
+          "handle": "@steipete",
+          "displayName": "steipete",
+          "group": "Builders",
+          "postedAt": "2026-05-27T07:45:00Z",
+          "text": "Claude Code just became my primary IDE. Rewrote a 2000-line Swift module overnight and all tests pass.",
+          "summary": "Reports using Claude Code to fully rewrite a 2000-line Swift module overnight with all tests passing.",
+          "topics": ["developer-workflows", "agents"],
+          "intent": "demo",
+          "importanceScore": 0.86,
+          "engagement": { "likes": 3600, "reposts": 780, "replies": 260, "quotes": 110 },
+          "url": "https://x.com/steipete/status/025"
+        },
+        {
+          "id": "x_020",
+          "platform": "x",
+          "handle": "@mattshumer_",
+          "displayName": "Matt Shumer",
+          "group": "Builders",
+          "postedAt": "2026-05-27T09:10:00Z",
+          "text": "Built an agent that generates, tests, and deploys microservices end-to-end from a single prompt. Ships working code 70% of the time on first try.",
+          "summary": "Demonstrates an agent that autonomously generates, tests, and deploys microservices from a single prompt at 70% success rate.",
+          "topics": ["agents", "developer-workflows"],
+          "intent": "demo",
+          "importanceScore": 0.91,
+          "engagement": { "likes": 6200, "reposts": 1500, "replies": 430, "quotes": 180 },
+          "url": "https://x.com/mattshumer_/status/020"
+        }
+      ]
+    },
+    {
+      "slug": "llms",
+      "label": "LLMs",
+      "postCount24h": 16,
+      "summary": "Research-focused discussion on attention mechanisms, open-model benchmarks, and JEPA's self-supervised video understanding results challenging the language-supervision assumption.",
+      "topHandles": ["@karpathy", "@ylecun", "@rasbt", "@dair_ai"],
+      "posts": [
+        {
+          "id": "x_001",
+          "platform": "x",
+          "handle": "@karpathy",
+          "displayName": "Andrej Karpathy",
+          "group": "Research",
+          "postedAt": "2026-05-27T09:23:00Z",
+          "text": "nanoGPT v2 is out. Added flash attention, gradient checkpointing, and a cleaner training loop. ~40% faster on A100.",
+          "summary": "nanoGPT v2 ships with flash attention and 40% training speed improvement on A100.",
+          "topics": ["open-source", "llms", "developer-workflows"],
+          "intent": "product",
+          "importanceScore": 0.91,
+          "engagement": { "likes": 4200, "reposts": 820, "replies": 211, "quotes": 94 },
+          "url": "https://x.com/karpathy/status/001"
+        },
+        {
+          "id": "x_009",
+          "platform": "x",
+          "handle": "@ylecun",
+          "displayName": "Yann LeCun",
+          "group": "Research",
+          "postedAt": "2026-05-26T10:00:00Z",
+          "text": "JEPA: new results on self-supervised video understanding. No language supervision required — just patch-level prediction.",
+          "summary": "New JEPA results show state-of-the-art video understanding via self-supervised patch prediction.",
+          "topics": ["research-papers", "llms", "images-video"],
+          "intent": "research",
+          "importanceScore": 0.87,
+          "engagement": { "likes": 4400, "reposts": 980, "replies": 210, "quotes": 140 },
+          "url": "https://x.com/ylecun/status/009"
+        }
+      ]
+    },
+    {
+      "slug": "open-source",
+      "label": "Open Source",
+      "postCount24h": 12,
+      "summary": "Open-source models gaining ground: Reflection-Llama beats GPT-4o on reasoning, Qwen2.5-72B climbs leaderboards, and new fine-tuning tutorials democratize access.",
+      "topHandles": ["@mattshumer_", "@ylecun", "@rasbt", "@dair_ai"],
+      "posts": [
+        {
+          "id": "x_021",
+          "platform": "x",
+          "handle": "@mattshumer_",
+          "displayName": "Matt Shumer",
+          "group": "Builders",
+          "postedAt": "2026-05-25T14:00:00Z",
+          "text": "Reflection-Llama-3.1-70B beats GPT-4o on 6 of 8 reasoning benchmarks. Open-sourcing weights and training recipe today.",
+          "summary": "Open-sources Reflection-Llama-3.1-70B, which beats GPT-4o on most reasoning benchmarks.",
+          "topics": ["open-source", "llms", "research-papers"],
+          "intent": "product",
+          "importanceScore": 0.93,
+          "engagement": { "likes": 9800, "reposts": 2600, "replies": 680, "quotes": 300 },
+          "url": "https://x.com/mattshumer_/status/021"
+        }
+      ]
+    },
+    {
+      "slug": "startup-ideas",
+      "label": "Startup Ideas",
+      "postCount24h": 14,
+      "summary": "Solo founders posting MRR milestones with AI leverage. The market is filtering AI wrappers — distribution and data moats are emerging as the real differentiators.",
+      "topHandles": ["@levelsio", "@marclou", "@gregisenberg", "@AndrewYNg"],
+      "posts": [
+        {
+          "id": "x_030",
+          "platform": "x",
+          "handle": "@levelsio",
+          "displayName": "levelsio",
+          "group": "Business",
+          "postedAt": "2026-05-26T17:00:00Z",
+          "text": "Nomad List crossed 500k registered users. No team. AI handles 70% of support, 40% of the feature roadmap.",
+          "summary": "Nomad List reaches 500k users as a one-person operation with AI handling most support and roadmap decisions.",
+          "topics": ["startup-ideas", "monetization"],
+          "intent": "startup",
+          "importanceScore": 0.88,
+          "engagement": { "likes": 8900, "reposts": 2100, "replies": 520, "quotes": 240 },
+          "url": "https://x.com/levelsio/status/030"
+        },
+        {
+          "id": "x_032",
+          "platform": "x",
+          "handle": "@marclou",
+          "displayName": "marclou",
+          "group": "Business",
+          "postedAt": "2026-05-27T06:00:00Z",
+          "text": "Month 3 update: $23k MRR across 4 AI products, all built solo with AI assistance.",
+          "summary": "Reports $23k MRR from 4 solo-built AI products after 3 months.",
+          "topics": ["startup-ideas", "monetization"],
+          "intent": "startup",
+          "importanceScore": 0.85,
+          "engagement": { "likes": 5600, "reposts": 1300, "replies": 310, "quotes": 170 },
+          "url": "https://x.com/marclou/status/032"
+        }
+      ]
+    },
+    {
+      "slug": "prompting",
+      "label": "Prompting",
+      "postCount24h": 9,
+      "summary": "Practical prompt engineering patterns gaining traction: chain-of-density for summaries, skeptical reviewer framing for reliability, and replacing entire app workflows with single prompts.",
+      "topHandles": ["@godofprompt", "@jackfriks"],
+      "posts": [
+        {
+          "id": "x_035",
+          "platform": "x",
+          "handle": "@godofprompt",
+          "displayName": "godofprompt",
+          "group": "Builders",
+          "postedAt": "2026-05-27T08:30:00Z",
+          "text": "Chain-of-density prompting: get 5x more information density in AI summaries through iterative compression. Full guide with before/after comparisons.",
+          "summary": "Publishes a guide on chain-of-density prompting for higher-information summaries with reusable templates.",
+          "topics": ["prompting", "education"],
+          "intent": "education",
+          "importanceScore": 0.83,
+          "engagement": { "likes": 3400, "reposts": 860, "replies": 190, "quotes": 100 },
+          "url": "https://x.com/godofprompt/status/035"
+        }
+      ]
+    },
+    {
+      "slug": "research-papers",
+      "label": "Research Papers",
+      "postCount24h": 11,
+      "summary": "Strong week for applied science: AlphaFold-style materials prediction, JEPA video results, and expert-level chemistry benchmarks. The weekly paper digest covers 14 notable releases.",
+      "topHandles": ["@demishassabis", "@ylecun", "@drfeifei", "@dair_ai"],
+      "posts": [
+        {
+          "id": "x_007",
+          "platform": "x",
+          "handle": "@demishassabis",
+          "displayName": "Demis Hassabis",
+          "group": "Research",
+          "postedAt": "2026-05-25T15:00:00Z",
+          "text": "Applying AlphaFold-style structural prediction to materials science. Crystal stability prediction 2x better than DFT at 1/100th the compute.",
+          "summary": "Google DeepMind adapts AlphaFold's approach to materials science with promising crystal stability results.",
+          "topics": ["research-papers", "frontier-models"],
+          "intent": "research",
+          "importanceScore": 0.94,
+          "engagement": { "likes": 8900, "reposts": 2100, "replies": 380, "quotes": 240 },
+          "url": "https://x.com/demishassabis/status/007"
+        }
+      ]
+    },
+    {
+      "slug": "monetization",
+      "label": "Monetization",
+      "postCount24h": 10,
+      "summary": "AI creative tools disrupting ad agencies, $140/month stacks generating $400k MRR, and enterprise deployments staying quiet for competitive reasons.",
+      "topHandles": ["@levelsio", "@0xROAS", "@alliekmiller", "@gregisenberg"],
+      "posts": [
+        {
+          "id": "x_031",
+          "platform": "x",
+          "handle": "@levelsio",
+          "displayName": "levelsio",
+          "group": "Business",
+          "postedAt": "2026-05-24T09:00:00Z",
+          "text": "My AI tools stack in 2025: Claude for writing and code, Midjourney v7 for images, Suno for marketing audio. Total monthly cost: $140. Revenue: $400k/month.",
+          "summary": "Shares a $140/month AI tools stack generating $400k/month in revenue.",
+          "topics": ["monetization", "startup-ideas"],
+          "intent": "startup",
+          "importanceScore": 0.87,
+          "engagement": { "likes": 12000, "reposts": 3200, "replies": 780, "quotes": 420 },
+          "url": "https://x.com/levelsio/status/031"
+        }
+      ]
+    },
+    {
+      "slug": "images-video",
+      "label": "Images / Video",
+      "postCount24h": 8,
+      "summary": "AI image tools entering professional design and advertising workflows: Figma + Claude at 3x handoff speed, AI ad creatives outperforming humans on most accounts.",
+      "topHandles": ["@egeberkina", "@MengTo", "@0xROAS", "@ylecun"],
+      "posts": [
+        {
+          "id": "x_041",
+          "platform": "x",
+          "handle": "@egeberkina",
+          "displayName": "egeberkina",
+          "group": "Builders",
+          "postedAt": "2026-05-27T07:00:00Z",
+          "text": "AI + Figma workflow: using Claude to generate component variants, write accessibility annotations, and draft design specs. 3x faster on design handoff.",
+          "summary": "Demonstrates using Claude inside a Figma workflow at 3x handoff speed.",
+          "topics": ["images-video", "developer-workflows"],
+          "intent": "demo",
+          "importanceScore": 0.81,
+          "engagement": { "likes": 2600, "reposts": 580, "replies": 160, "quotes": 68 },
+          "url": "https://x.com/egeberkina/status/041"
+        }
+      ]
+    }
+  ]
+}
