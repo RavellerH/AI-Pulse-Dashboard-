@@ -1,2 +1,4 @@
 twscrape
+feedparser
+httpx
 anthropic>=0.40.0

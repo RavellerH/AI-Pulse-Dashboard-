@@ -31,7 +31,7 @@ def build_people(posts: list[dict[str, Any]], group_map: dict[str, str]) -> list
         top_topics = [t for t, _ in topic_counter.most_common(4)]
         last_posted = max(p["postedAt"] for p in handle_posts)
         display_name = handle_posts[0].get("displayName", handle)
-        group = group_map.get(handle, "Builders")
+        group = group_map.get(handle) or handle_posts[0].get("group", "Builders")
 
         focus_topics = ", ".join(top_topics[:2]) if top_topics else "general AI"
         people.append(

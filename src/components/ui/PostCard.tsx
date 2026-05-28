@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import type { FeedPost } from '../../types'
+import type { FeedPost, Platform } from '../../types'
 import TagPill from './TagPill'
 
 interface PostCardProps {
@@ -19,9 +19,18 @@ const INTENT_BADGE: Record<string, { label: string; color: string }> = {
   creative: { label: 'Creative', color: 'text-pink-400 bg-pink-900/30 border-pink-800/40' },
 }
 
+const PLATFORM_LABEL: Partial<Record<Platform, string>> = {
+  x: 'X',
+  rss: 'RSS',
+  bluesky: 'Bluesky',
+  arxiv: 'arXiv',
+  hackernews: 'HN',
+}
+
 export default function PostCard({ post, compact = false }: PostCardProps) {
   const badge = INTENT_BADGE[post.intent] ?? { label: post.intent, color: 'text-text-muted bg-surface-3 border-border-default' }
   const score = Math.round(post.importanceScore * 100)
+  const platformLabel = PLATFORM_LABEL[post.platform] ?? post.platform
 
   return (
     <div className="bg-surface-1 border border-border-default rounded-lg p-4 hover:border-surface-3 transition-colors">
@@ -39,7 +48,12 @@ export default function PostCard({ post, compact = false }: PostCardProps) {
               <span className="text-xs text-text-muted font-mono">{post.handle}</span>
               <TagPill label={post.group} variant="group" />
             </div>
-            <p className="text-2xs text-text-muted font-mono mt-0.5">{formatTime(post.postedAt)}</p>
+            <p className="text-2xs text-text-muted font-mono mt-0.5">
+              {formatTime(post.postedAt)}
+              {post.platform !== 'x' && (
+                <span className="ml-1.5 opacity-60">· {platformLabel}</span>
+              )}
+            </p>
           </div>
         </div>
         <div className="flex items-center gap-2 shrink-0">
@@ -74,7 +88,7 @@ export default function PostCard({ post, compact = false }: PostCardProps) {
           {post.engagement.reposts > 0 && (
             <span title="Reposts">↺ {fmtNum(post.engagement.reposts)}</span>
           )}
-          {isRealUrl(post.url) ? (
+          {isRealUrl(post.platform, post.url) ? (
             <a
               href={post.url}
               target="_blank"
@@ -141,7 +155,10 @@ function fmtNum(n: number): string {
   return String(n)
 }
 
-function isRealUrl(url: string): boolean {
+// X tweet URLs need a real status ID (≥10 digits).
+// All other platforms (RSS, Bluesky, arXiv, HN) always have valid URLs.
+function isRealUrl(platform: Platform, url: string): boolean {
+  if (platform !== 'x') return true
   const match = url.match(/\/status\/(\d+)$/)
   return match !== null && match[1].length >= 10
 }
