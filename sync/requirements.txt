@@ -1,2 +1,2 @@
-twikit>=2.3.0
+twscrape
 anthropic>=0.40.0

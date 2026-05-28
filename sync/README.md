@@ -37,12 +37,13 @@ In your repo → Settings → Secrets and variables → Actions:
 |---|---|---|
 | `X_USERNAME` | Yes | Your X username |
 | `X_EMAIL` | Yes | Your X account email |
-| `X_PASSWORD` | Yes | Your X password |
+| `X_PASSWORD` | Yes | Your X account password |
+| `X_EMAIL_PASSWORD` | No | Email-account password (defaults to `X_PASSWORD` if not set) |
 | `ANTHROPIC_API_KEY` | No | Claude enrichment (uses heuristics if absent) |
 
 ## How it works
 
-1. `sync.py` logs into X via `twikit` (unofficial, no API key needed)
+1. `sync.py` logs into X via `twscrape` (unofficial, no API key needed)
 2. Fetches last 15 tweets from each of the 28 tracked accounts
 3. Enriches each post: topics, intent, importance score, summary
    - With `ANTHROPIC_API_KEY`: uses Claude Haiku (cheap, fast)

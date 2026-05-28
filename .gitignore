@@ -5,3 +5,4 @@ dist/
 .env
 .env.local
 sync/.cookies.json
+sync/.twscrape.db

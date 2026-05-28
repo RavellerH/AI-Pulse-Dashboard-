@@ -7,11 +7,12 @@ Usage:
     python -m sync.sync --dry-run         # skip fetch, use existing feed.json
 
 Required env vars (real fetch):
-    X_USERNAME      your X username or email
-    X_EMAIL         your X email (for 2-step auth)
-    X_PASSWORD      your X password
+    X_USERNAME      your X username
+    X_EMAIL         your X account email
+    X_PASSWORD      your X account password
 
 Optional env vars:
+    X_EMAIL_PASSWORD    email-account password (defaults to X_PASSWORD if not set)
     ANTHROPIC_API_KEY   enables Claude enrichment (otherwise uses heuristics)
 """
 
@@ -21,7 +22,6 @@ import os
 import sys
 import argparse
 from datetime import datetime, timezone
-from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 from .accounts import ACCOUNTS
@@ -29,60 +29,50 @@ from .enrich import enrich_posts
 from .build_artifacts import build_people, build_topics, build_overview, build_briefing
 
 DATA_DIR = Path("public/data")
-COOKIES_PATH = Path("sync/.cookies.json")
+TWSCRAPE_DB = Path("sync/.twscrape.db")
 
 
 def _now_str() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def _parse_time(created_at: str | datetime) -> str:
-    if isinstance(created_at, datetime):
-        return created_at.strftime("%Y-%m-%dT%H:%M:%SZ")
-    try:
-        dt = parsedate_to_datetime(created_at)
-        return dt.strftime("%Y-%m-%dT%H:%M:%SZ")
-    except Exception:
-        return _now_str()
-
-
 def normalize_tweet(tweet, handle: str, group: str) -> dict:
-    text = getattr(tweet, "full_text", None) or getattr(tweet, "text", "") or ""
+    text = getattr(tweet, "rawContent", None) or ""
     return {
         "id": f"x_{tweet.id}",
         "platform": "x",
         "handle": f"@{handle}",
-        "displayName": getattr(tweet.user, "name", handle) if tweet.user else handle,
+        "displayName": tweet.user.displayname if tweet.user else handle,
         "group": group,
-        "postedAt": _parse_time(tweet.created_at),
+        "postedAt": tweet.date.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "text": text,
         "summary": text[:160],
         "topics": [],
         "intent": "opinion",
         "importanceScore": 0.5,
         "engagement": {
-            "likes": getattr(tweet, "favorite_count", 0) or 0,
-            "reposts": getattr(tweet, "retweet_count", 0) or 0,
-            "replies": getattr(tweet, "reply_count", 0) or 0,
-            "quotes": getattr(tweet, "quote_count", 0) or 0,
+            "likes": getattr(tweet, "likeCount", 0) or 0,
+            "reposts": getattr(tweet, "retweetCount", 0) or 0,
+            "replies": getattr(tweet, "replyCount", 0) or 0,
+            "quotes": getattr(tweet, "quoteCount", 0) or 0,
         },
         "url": f"https://x.com/{handle}/status/{tweet.id}",
     }
 
 
-async def fetch_account(client, handle: str, group: str, count: int = 15) -> list[dict]:
+async def fetch_account(api, handle: str, group: str, count: int = 15) -> list[dict]:
     posts = []
     try:
-        user = await client.get_user_by_screen_name(handle)
+        from twscrape import gather
+        user = await api.user_by_login(handle)
         if not user:
             print(f"  [{handle}] not found")
             return []
-        tweets = await client.get_user_tweets(user.id, "Tweets", count=count)
+        tweets = await gather(api.user_tweets(user.id, limit=count))
         for tweet in tweets:
-            # Skip replies and native retweets
-            if getattr(tweet, "in_reply_to", None):
+            if getattr(tweet, "inReplyToTweetId", None):
                 continue
-            if getattr(tweet, "retweeted_tweet", None):
+            if getattr(tweet, "retweetedTweet", None):
                 continue
             posts.append(normalize_tweet(tweet, handle, group))
         print(f"  [{handle}] {len(posts)} posts")
@@ -93,32 +83,27 @@ async def fetch_account(client, handle: str, group: str, count: int = 15) -> lis
 
 async def fetch_all(username: str, email: str, password: str) -> list[dict]:
     try:
-        from twikit import Client
+        from twscrape import API
     except ImportError:
-        print("ERROR: twikit not installed. Run: pip install twikit")
+        print("ERROR: twscrape not installed. Run: pip install twscrape")
         sys.exit(1)
 
-    client = Client("en-US")
+    TWSCRAPE_DB.parent.mkdir(exist_ok=True)
+    api = API(str(TWSCRAPE_DB))
 
-    if COOKIES_PATH.exists():
-        print(f"Loading cookies from {COOKIES_PATH}")
-        client.load_cookies(str(COOKIES_PATH))
-    else:
-        print(f"Logging in as {username}…")
-        await client.login(
-            auth_info_1=username,
-            auth_info_2=email,
-            password=password,
-        )
-        COOKIES_PATH.parent.mkdir(exist_ok=True)
-        client.save_cookies(str(COOKIES_PATH))
-        print(f"Saved cookies to {COOKIES_PATH}")
+    email_password = os.environ.get("X_EMAIL_PASSWORD", password)
+    print(f"Adding account {username} to pool…")
+    await api.pool.add_account(username, password, email, email_password)
+
+    print("Logging in…")
+    await api.pool.login_all()
+    print("Pool ready")
 
     all_posts: list[dict] = []
     for handle, group in ACCOUNTS.items():
-        posts = await fetch_account(client, handle, group)
+        posts = await fetch_account(api, handle, group)
         all_posts.extend(posts)
-        await asyncio.sleep(1.2)   # polite rate limiting
+        await asyncio.sleep(0.8)   # polite rate limiting
 
     return all_posts
 
