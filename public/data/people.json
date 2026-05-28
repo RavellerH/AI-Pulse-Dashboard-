@@ -1,257 +1,240 @@
 {
-  "generatedAt": "2026-05-27T09:45:00Z",
+  "generatedAt": "2026-05-28T05:18:05Z",
   "people": [
     {
       "handle": "@karpathy",
       "displayName": "Andrej Karpathy",
       "group": "Research",
-      "lastPostedAt": "2026-05-27T09:23:00Z",
-      "posts7d": 8,
-      "topTopics": ["llms", "education", "open-source"],
-      "currentFocus": "Appears to be explaining practical LLM internals and shipping nanoGPT improvements for the research community."
-    },
-    {
-      "handle": "@sama",
-      "displayName": "Sam Altman",
-      "group": "Frontier",
-      "lastPostedAt": "2026-05-27T08:55:00Z",
-      "posts7d": 5,
-      "topTopics": ["frontier-models", "developer-workflows", "research-papers"],
-      "currentFocus": "Likely discussing GPT-5 rollout milestones and alignment research directions."
-    },
-    {
-      "handle": "@demishassabis",
-      "displayName": "Demis Hassabis",
-      "group": "Research",
-      "lastPostedAt": "2026-05-27T07:30:00Z",
-      "posts7d": 4,
-      "topTopics": ["frontier-models", "research-papers"],
-      "currentFocus": "Posting about Gemini benchmark results and applying AI to scientific discovery domains."
+      "lastPostedAt": "2026-05-28T03:55:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "open-source",
+        "llms",
+        "developer-workflows"
+      ],
+      "currentFocus": "Posting mostly about open-source, llms this week."
     },
     {
       "handle": "@ylecun",
       "displayName": "Yann LeCun",
       "group": "Research",
-      "lastPostedAt": "2026-05-27T06:15:00Z",
-      "posts7d": 7,
-      "topTopics": ["open-source", "research-papers", "frontier-models"],
-      "currentFocus": "Appears to be debating open-source safety, promoting JEPA research, and pushing back on LLM limitations."
+      "lastPostedAt": "2026-05-28T03:08:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "llms",
+        "ai-safety",
+        "research-papers"
+      ],
+      "currentFocus": "Posting mostly about llms, ai-safety this week."
     },
     {
-      "handle": "@AndrewYNg",
-      "displayName": "Andrew Ng",
-      "group": "Research",
-      "lastPostedAt": "2026-05-27T05:00:00Z",
-      "posts7d": 6,
-      "topTopics": ["education", "llms", "startup-ideas"],
-      "currentFocus": "Likely promoting LLM fine-tuning education content and AI Fund portfolio activity."
-    },
-    {
-      "handle": "@OfficialLoganK",
-      "displayName": "Logan Kilpatrick",
-      "group": "Frontier",
-      "lastPostedAt": "2026-05-27T09:00:00Z",
-      "posts7d": 9,
-      "topTopics": ["frontier-models", "developer-workflows"],
-      "currentFocus": "Posting API updates, new model launches, and developer-facing product changes at OpenAI."
-    },
-    {
-      "handle": "@lexfridman",
-      "displayName": "Lex Fridman",
+      "handle": "@dang",
+      "displayName": "HN · dang",
       "group": "Media",
-      "lastPostedAt": "2026-05-26T20:00:00Z",
-      "posts7d": 4,
-      "topTopics": ["frontier-models", "research-papers"],
-      "currentFocus": "Appears to be preparing a major interview with Ilya Sutskever and discussing AI consciousness."
+      "lastPostedAt": "2026-05-28T02:33:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "llms",
+        "openai-updates"
+      ],
+      "currentFocus": "Posting mostly about llms, openai-updates this week."
     },
     {
-      "handle": "@drfeifei",
+      "handle": "@sama",
+      "displayName": "Sam Altman",
+      "group": "Frontier",
+      "lastPostedAt": "2026-05-28T02:13:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "llms",
+        "openai-updates",
+        "ai-policy"
+      ],
+      "currentFocus": "Posting mostly about llms, openai-updates this week."
+    },
+    {
+      "handle": "@ylecun.bsky.social",
+      "displayName": "Yann LeCun",
+      "group": "Research",
+      "lastPostedAt": "2026-05-28T01:38:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "research-papers",
+        "llms",
+        "ai-safety"
+      ],
+      "currentFocus": "Posting mostly about research-papers, llms this week."
+    },
+    {
+      "handle": "@tptacek",
+      "displayName": "HN · tptacek",
+      "group": "Media",
+      "lastPostedAt": "2026-05-28T01:08:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "developer-workflows",
+        "open-source",
+        "llms"
+      ],
+      "currentFocus": "Posting mostly about developer-workflows, open-source this week."
+    },
+    {
+      "handle": "@emollick",
+      "displayName": "Ethan Mollick",
+      "group": "Media",
+      "lastPostedAt": "2026-05-28T01:03:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "education",
+        "ai-impact",
+        "llms"
+      ],
+      "currentFocus": "Posting mostly about education, ai-impact this week."
+    },
+    {
+      "handle": "@emollick.bsky.social",
+      "displayName": "Ethan Mollick",
+      "group": "Media",
+      "lastPostedAt": "2026-05-28T00:03:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "ai-impact",
+        "education",
+        "llms"
+      ],
+      "currentFocus": "Posting mostly about ai-impact, education this week."
+    },
+    {
+      "handle": "@DrFeiFeiLi",
       "displayName": "Fei-Fei Li",
       "group": "Research",
-      "lastPostedAt": "2026-05-27T04:30:00Z",
-      "posts7d": 5,
-      "topTopics": ["research-papers", "agents", "frontier-models"],
-      "currentFocus": "Posting about spatial intelligence, embodied AI, and climate applications of computer vision."
+      "lastPostedAt": "2026-05-27T23:48:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "computer-vision",
+        "startups",
+        "multimodal"
+      ],
+      "currentFocus": "Posting mostly about computer-vision, startups this week."
     },
     {
-      "handle": "@jeremyphoward",
-      "displayName": "Jeremy Howard",
-      "group": "Research",
-      "lastPostedAt": "2026-05-26T12:00:00Z",
-      "posts7d": 5,
-      "topTopics": ["education", "llms", "open-source"],
-      "currentFocus": "Likely shipping fast.ai curriculum updates and building ML education tooling."
-    },
-    {
-      "handle": "@rasbt",
-      "displayName": "Sebastian Raschka",
-      "group": "Research",
-      "lastPostedAt": "2026-05-27T08:00:00Z",
-      "posts7d": 9,
-      "topTopics": ["open-source", "llms", "education"],
-      "currentFocus": "Benchmarking open-source LLMs and publishing practical fine-tuning tutorials."
-    },
-    {
-      "handle": "@alliekmiller",
-      "displayName": "Allie K. Miller",
-      "group": "Business",
-      "lastPostedAt": "2026-05-27T07:00:00Z",
-      "posts7d": 6,
-      "topTopics": ["monetization", "startup-ideas"],
-      "currentFocus": "Appears to be tracking enterprise AI adoption and workforce transformation data."
-    },
-    {
-      "handle": "@mattshumer_",
-      "displayName": "Matt Shumer",
-      "group": "Builders",
-      "lastPostedAt": "2026-05-27T09:10:00Z",
-      "posts7d": 7,
-      "topTopics": ["agents", "developer-workflows", "open-source"],
-      "currentFocus": "Shipping agent demos and open-sourcing fine-tuned models with strong reasoning benchmarks."
-    },
-    {
-      "handle": "@gdb",
-      "displayName": "Greg Brockman",
+      "handle": "@AnthropicAI",
+      "displayName": "Anthropic",
       "group": "Frontier",
-      "lastPostedAt": "2026-05-27T08:20:00Z",
-      "posts7d": 4,
-      "topTopics": ["agents", "frontier-models", "research-papers"],
-      "currentFocus": "Discussing the agent layer at OpenAI and defending the scaling hypothesis."
+      "lastPostedAt": "2026-05-27T23:18:05Z",
+      "posts7d": 2,
+      "topTopics": [
+        "llms",
+        "anthropic-updates",
+        "ai-agents",
+        "ai-safety"
+      ],
+      "currentFocus": "Posting mostly about llms, anthropic-updates this week."
     },
     {
-      "handle": "@dair_ai",
-      "displayName": "DAIR.AI",
+      "handle": "@pg",
+      "displayName": "HN · pg",
+      "group": "Media",
+      "lastPostedAt": "2026-05-27T22:48:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "startups",
+        "llms",
+        "anthropic-updates"
+      ],
+      "currentFocus": "Posting mostly about startups, llms this week."
+    },
+    {
+      "handle": "@OpenAI",
+      "displayName": "OpenAI",
+      "group": "Frontier",
+      "lastPostedAt": "2026-05-27T22:18:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "llms",
+        "openai-updates",
+        "multimodal"
+      ],
+      "currentFocus": "Posting mostly about llms, openai-updates this week."
+    },
+    {
+      "handle": "@visakanv",
+      "displayName": "HN · visakanv",
+      "group": "Media",
+      "lastPostedAt": "2026-05-27T21:18:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "developer-workflows",
+        "llms",
+        "ai-agents"
+      ],
+      "currentFocus": "Posting mostly about developer-workflows, llms this week."
+    },
+    {
+      "handle": "@karpathy.bsky.social",
+      "displayName": "Andrej Karpathy",
       "group": "Research",
-      "lastPostedAt": "2026-05-26T08:00:00Z",
-      "posts7d": 10,
-      "topTopics": ["research-papers", "llms", "open-source"],
-      "currentFocus": "Publishing weekly AI paper digests and open-source LLM leaderboard updates."
+      "lastPostedAt": "2026-05-27T20:18:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "llms",
+        "research-papers",
+        "developer-workflows"
+      ],
+      "currentFocus": "Posting mostly about llms, research-papers this week."
     },
     {
-      "handle": "@gregisenberg",
-      "displayName": "Greg Isenberg",
-      "group": "Business",
-      "lastPostedAt": "2026-05-26T19:00:00Z",
-      "posts7d": 8,
-      "topTopics": ["startup-ideas", "monetization"],
-      "currentFocus": "Appears to be analyzing what AI product categories are surviving the market filter."
+      "handle": "@GoogleDeepMind",
+      "displayName": "Google DeepMind",
+      "group": "Frontier",
+      "lastPostedAt": "2026-05-27T19:18:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "llms",
+        "developer-workflows",
+        "google-updates"
+      ],
+      "currentFocus": "Posting mostly about llms, developer-workflows this week."
     },
     {
-      "handle": "@steipete",
-      "displayName": "steipete",
-      "group": "Builders",
-      "lastPostedAt": "2026-05-27T07:45:00Z",
-      "posts7d": 11,
-      "topTopics": ["developer-workflows", "agents"],
-      "currentFocus": "Posting about AI-assisted development workflows, primarily Swift/iOS, with Claude Code usage."
+      "handle": "@arxiv",
+      "displayName": "Dubey et al.",
+      "group": "Research",
+      "lastPostedAt": "2026-05-27T18:18:05Z",
+      "posts7d": 3,
+      "topTopics": [
+        "research-papers",
+        "llms",
+        "open-source",
+        "ai-safety"
+      ],
+      "currentFocus": "Posting mostly about research-papers, llms this week."
     },
     {
-      "handle": "@rileybrown",
-      "displayName": "rileybrown",
-      "group": "Builders",
-      "lastPostedAt": "2026-05-26T14:30:00Z",
-      "posts7d": 6,
-      "topTopics": ["developer-workflows", "agents"],
-      "currentFocus": "Building AI tools for product teams and experimenting with Figma-to-code pipelines."
+      "handle": "@lilianweng",
+      "displayName": "Lilian Weng",
+      "group": "Research",
+      "lastPostedAt": "2026-05-27T15:18:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "llms",
+        "research-papers",
+        "ai-agents"
+      ],
+      "currentFocus": "Posting mostly about llms, research-papers this week."
     },
     {
-      "handle": "@jackfriks",
-      "displayName": "jackfriks",
-      "group": "Builders",
-      "lastPostedAt": "2026-05-27T06:30:00Z",
-      "posts7d": 8,
-      "topTopics": ["agents", "prompting", "developer-workflows"],
-      "currentFocus": "Sharing agent loop failure patterns and prompt workflows from real usage."
-    },
-    {
-      "handle": "@levelsio",
-      "displayName": "levelsio",
-      "group": "Business",
-      "lastPostedAt": "2026-05-26T17:00:00Z",
-      "posts7d": 7,
-      "topTopics": ["startup-ideas", "monetization"],
-      "currentFocus": "Likely discussing Nomad List growth and the solo-founder AI leverage playbook."
-    },
-    {
-      "handle": "@marclou",
-      "displayName": "marclou",
-      "group": "Business",
-      "lastPostedAt": "2026-05-27T06:00:00Z",
-      "posts7d": 9,
-      "topTopics": ["startup-ideas", "monetization", "developer-workflows"],
-      "currentFocus": "Posting MRR updates and shipping velocity insights from building multiple AI products solo."
-    },
-    {
-      "handle": "@EXM7777",
-      "displayName": "EXM7777",
-      "group": "Builders",
-      "lastPostedAt": "2026-05-26T13:00:00Z",
-      "posts7d": 6,
-      "topTopics": ["developer-workflows", "images-video"],
-      "currentFocus": "Experimenting with video-to-code pipelines and AI creative tools."
-    },
-    {
-      "handle": "@eptwts",
-      "displayName": "eptwts",
-      "group": "Business",
-      "lastPostedAt": "2026-05-26T11:00:00Z",
-      "posts7d": 5,
-      "topTopics": ["agents", "open-source", "developer-workflows"],
-      "currentFocus": "Building open-source agents for developer workflows, focused on GitHub automation."
-    },
-    {
-      "handle": "@godofprompt",
-      "displayName": "godofprompt",
-      "group": "Builders",
-      "lastPostedAt": "2026-05-27T08:30:00Z",
-      "posts7d": 10,
-      "topTopics": ["prompting", "education"],
-      "currentFocus": "Publishing prompt engineering patterns and guides focused on information density and reliability."
-    },
-    {
-      "handle": "@vasuman",
-      "displayName": "vasuman",
-      "group": "Builders",
-      "lastPostedAt": "2026-05-26T15:00:00Z",
-      "posts7d": 7,
-      "topTopics": ["agents", "developer-workflows", "llms"],
-      "currentFocus": "Appears to be systematizing multi-agent architecture patterns from production deployments."
-    },
-    {
-      "handle": "@AmirMushich",
-      "displayName": "AmirMushich",
-      "group": "Builders",
-      "lastPostedAt": "2026-05-26T10:30:00Z",
-      "posts7d": 6,
-      "topTopics": ["agents", "developer-workflows"],
-      "currentFocus": "Building meeting intelligence tools and sharing weekend AI project demos."
-    },
-    {
-      "handle": "@0xROAS",
-      "displayName": "0xROAS",
-      "group": "Builders",
-      "lastPostedAt": "2026-05-26T09:00:00Z",
-      "posts7d": 5,
-      "topTopics": ["monetization", "images-video"],
-      "currentFocus": "Tracking AI impact on ad creative performance and marketing ROI."
-    },
-    {
-      "handle": "@egeberkina",
-      "displayName": "egeberkina",
-      "group": "Builders",
-      "lastPostedAt": "2026-05-27T07:00:00Z",
-      "posts7d": 7,
-      "topTopics": ["images-video", "developer-workflows"],
-      "currentFocus": "Exploring AI-assisted design workflows in Figma and evaluating image generation tools for UI work."
-    },
-    {
-      "handle": "@MengTo",
-      "displayName": "MengTo",
-      "group": "Builders",
-      "lastPostedAt": "2026-05-26T08:00:00Z",
-      "posts7d": 6,
-      "topTopics": ["developer-workflows", "images-video"],
-      "currentFocus": "Building design system automation tools and experimenting with SwiftUI + AI code generation."
+      "handle": "@huggingface",
+      "displayName": "Hugging Face",
+      "group": "Research",
+      "lastPostedAt": "2026-05-27T12:58:05Z",
+      "posts7d": 1,
+      "topTopics": [
+        "open-source",
+        "llms",
+        "developer-workflows"
+      ],
+      "currentFocus": "Posting mostly about open-source, llms this week."
     }
   ]
 }

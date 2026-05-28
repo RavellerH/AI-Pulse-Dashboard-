@@ -1,7 +1,13 @@
 {
-  "generatedAt": "2026-05-27T09:45:00Z",
-  "sourcePlatform": "x",
-  "sourceCount": 28,
+  "generatedAt": "2026-05-28T05:18:05Z",
+  "sourcePlatforms": [
+    "hackernews",
+    "arxiv",
+    "rss",
+    "bluesky",
+    "x"
+  ],
+  "sourceCount": 18,
   "postWindowHours": 168,
-  "dataVersion": "2026-05-27T09-45-00Z"
+  "dataVersion": "2026-05-28T05-18-05Z"
 }

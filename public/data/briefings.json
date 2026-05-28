@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-05-27T09:45:00Z",
+  "generatedAt": "2026-05-28T05:18:05Z",
   "briefings": [
+    {
+      "id": "hourly-2026-05-28T05",
+      "window": "1h",
+      "title": "Hourly Pulse — 05:00 UTC",
+      "generatedAt": "2026-05-28T05:18:05Z",
+      "summary": "0 posts in the last hour. Top signal: No high-signal posts in the last hour.",
+      "highlights": [],
+      "topEntities": [],
+      "debates": [],
+      "recommendedPostIds": []
+    },
     {
       "id": "hourly-2026-05-27T09",
       "window": "1h",
@@ -14,12 +25,25 @@
         "Matt Shumer demos an end-to-end microservice deployment agent with 70% first-try success rate.",
         "Gemini 2.5 Pro posts above-human-expert results on 12 chemistry benchmarks."
       ],
-      "topEntities": ["GPT-5", "o3-mini", "nanoGPT", "Gemini 2.5 Pro", "OpenAI", "Google DeepMind"],
+      "topEntities": [
+        "GPT-5",
+        "o3-mini",
+        "nanoGPT",
+        "Gemini 2.5 Pro",
+        "OpenAI",
+        "Google DeepMind"
+      ],
       "debates": [
         "Open source vs. closed safety: LeCun and others continue pushing back on closed-model safety claims.",
         "Benchmark validity: Karpathy questions whether MMLU-optimized models mask genuine capability gaps."
       ],
-      "recommendedPostIds": ["x_004", "x_012", "x_001", "x_022", "x_020"]
+      "recommendedPostIds": [
+        "x_004",
+        "x_012",
+        "x_001",
+        "x_022",
+        "x_020"
+      ]
     },
     {
       "id": "daily-2026-05-27",
@@ -36,14 +60,31 @@
         "JEPA self-supervised video understanding advances without language supervision, challenging the multimodal assumption.",
         "Ilya Sutskever interview announced — first extended public conversation since OpenAI departure."
       ],
-      "topEntities": ["GPT-5", "OpenAI", "Gemini 2.5", "Claude Code", "Llama 3.1", "JEPA", "Google DeepMind", "Coursera"],
+      "topEntities": [
+        "GPT-5",
+        "OpenAI",
+        "Gemini 2.5",
+        "Claude Code",
+        "Llama 3.1",
+        "JEPA",
+        "Google DeepMind",
+        "Coursera"
+      ],
       "debates": [
         "Scaling hypothesis viability: Brockman defending the curve against pessimist front-running.",
         "AI wrapper business models: are distribution moats enough, or is proprietary data required?",
         "Open source safety: LeCun vs. the closed-model consensus on verifiable safety claims.",
         "Benchmark validity: MMLU optimization masking spatial reasoning deficits."
       ],
-      "recommendedPostIds": ["x_004", "x_022", "x_006", "x_021", "x_030", "x_014", "x_007"]
+      "recommendedPostIds": [
+        "x_004",
+        "x_022",
+        "x_006",
+        "x_021",
+        "x_030",
+        "x_014",
+        "x_007"
+      ]
     },
     {
       "id": "weekly-2026-05-27",
@@ -60,14 +101,31 @@
         "AI creative tools outperforming humans in ad performance across 7 of 8 tested accounts.",
         "Solo founders demonstrating $140/month AI stacks generating $400k+ MRR — the leverage story is quantified."
       ],
-      "topEntities": ["GPT-5", "Gemini 2.5", "Claude Code", "Llama 3.1", "AlphaFold", "JEPA", "Midjourney v7", "Qwen2.5"],
+      "topEntities": [
+        "GPT-5",
+        "Gemini 2.5",
+        "Claude Code",
+        "Llama 3.1",
+        "AlphaFold",
+        "JEPA",
+        "Midjourney v7",
+        "Qwen2.5"
+      ],
       "debates": [
         "Scaling laws: are we still on the curve or is capability fragmentation masking a plateau?",
         "Open source vs. closed safety: LeCun's position gaining adherents as verifiability becomes the argument.",
         "AI wrapper survivability: distribution moats vs. data moats as the real differentiator.",
         "Benchmark validity: spatial reasoning gaps not captured by current standard evaluations."
       ],
-      "recommendedPostIds": ["x_004", "x_022", "x_021", "x_030", "x_007", "x_044", "x_014"]
+      "recommendedPostIds": [
+        "x_004",
+        "x_022",
+        "x_021",
+        "x_030",
+        "x_007",
+        "x_044",
+        "x_014"
+      ]
     }
   ]
 }
