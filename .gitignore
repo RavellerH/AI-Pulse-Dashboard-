@@ -6,3 +6,5 @@ dist/
 .env.local
 sync/.cookies.json
 sync/.twscrape.db
+__pycache__/
+*.py[cod]
