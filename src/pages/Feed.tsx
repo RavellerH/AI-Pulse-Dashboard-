@@ -28,7 +28,7 @@ export default function Feed() {
     })
   }, [data, filters])
 
-  if (error) return <div className="p-6"><ErrorState message={error} /></div>
+  if (error) return <div className="p-4"><ErrorState message={error} /></div>
 
   return (
     <div className="flex flex-col h-full">
@@ -40,14 +40,16 @@ export default function Feed() {
       />
       <div className="flex-1 overflow-y-auto px-4 py-4">
         {loading ? (
-          <ListSkeleton count={8} />
+          <div className="max-w-3xl space-y-3">
+            <ListSkeleton count={8} />
+          </div>
         ) : filtered.length === 0 ? (
           <EmptyState
             title="No posts match these filters"
-            message="Try expanding the date window or removing group/topic filters."
+            message="Try expanding the time window or removing group/topic filters."
           />
         ) : (
-          <div className="max-w-3xl space-y-3">
+          <div className="max-w-3xl space-y-3 pb-4">
             {filtered.map((p) => (
               <PostCard key={p.id} post={p} />
             ))}

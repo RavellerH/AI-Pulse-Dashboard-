@@ -6,6 +6,13 @@
   html {
     background-color: #0d1117;
     color: #e6edf3;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   * {
@@ -14,8 +21,8 @@
   }
 
   *::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
   }
 
   *::-webkit-scrollbar-track {
@@ -24,7 +31,12 @@
 
   *::-webkit-scrollbar-thumb {
     background-color: #30363d;
-    border-radius: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: rgba(45, 212, 191, 0.2);
+    color: #e6edf3;
   }
 }
 
@@ -41,5 +53,20 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  /* iOS safe area for bottom nav */
+  .safe-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Horizontal scroll without visible scrollbar */
+  .scroll-x-hidden {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scroll-x-hidden::-webkit-scrollbar {
+    display: none;
   }
 }

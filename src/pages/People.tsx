@@ -28,17 +28,18 @@ export default function People() {
     })
   }, [data, activeGroup, search])
 
-  if (error) return <div className="p-6"><ErrorState message={error} /></div>
+  if (error) return <div className="p-4"><ErrorState message={error} /></div>
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6">
-      <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-5">
-        <div className="flex flex-wrap gap-1.5">
+    <div className="max-w-7xl mx-auto px-4 py-5">
+      {/* Filters */}
+      <div className="mb-5 space-y-3">
+        <div className="scroll-x-hidden flex items-center gap-2 pb-1">
           <button
             onClick={() => setActiveGroup(null)}
-            className={`text-xs px-3 py-1.5 rounded border transition-colors ${
+            className={`text-xs px-3 py-1.5 rounded-lg border whitespace-nowrap transition-colors shrink-0 ${
               activeGroup === null
-                ? 'bg-accent/10 border-accent/30 text-accent'
+                ? 'bg-accent/10 border-accent/30 text-accent font-medium'
                 : 'border-border-default text-text-muted hover:text-text-primary'
             }`}
           >
@@ -51,29 +52,28 @@ export default function People() {
               <button
                 key={g}
                 onClick={() => setActiveGroup(activeGroup === g ? null : g)}
-                className={`text-xs px-3 py-1.5 rounded border transition-colors ${
+                className={`text-xs px-3 py-1.5 rounded-lg border whitespace-nowrap transition-colors shrink-0 ${
                   activeGroup === g
-                    ? 'bg-accent/10 border-accent/30 text-accent'
+                    ? 'bg-accent/10 border-accent/30 text-accent font-medium'
                     : 'border-border-default text-text-muted hover:text-text-primary'
                 }`}
               >
-                {g} ({count})
+                {g} <span className="opacity-60">({count})</span>
               </button>
             )
           })}
         </div>
 
-        <div className="flex-1 max-w-xs">
-          <input
-            type="search"
-            placeholder="Search people..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-surface-2 border border-border-default rounded text-sm text-text-primary px-3 py-1.5 outline-none placeholder-text-muted focus:border-accent/50 transition-colors"
-          />
-        </div>
+        <input
+          type="search"
+          placeholder="Search by name, handle, or focus area..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full sm:max-w-sm bg-surface-2 border border-border-default rounded-lg text-sm text-text-primary px-3.5 py-2.5 outline-none placeholder-text-muted focus:border-accent/50 transition-colors"
+        />
       </div>
 
+      {/* Grid */}
       {loading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
           {Array.from({ length: 12 }).map((_, i) => <PersonCardSkeleton key={i} />)}

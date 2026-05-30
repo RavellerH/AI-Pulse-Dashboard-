@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useManifest, getFreshnessState } from '../../hooks/useData'
 
@@ -14,88 +13,55 @@ const ROUTE_LABELS: Record<string, string> = {
 export default function TopBar() {
   const location = useLocation()
   const { data: manifest } = useManifest()
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const label = ROUTE_LABELS[location.pathname] ?? 'AI Pulse'
   const freshness = manifest ? getFreshnessState(manifest.generatedAt) : null
 
-  const freshnessColor = {
-    fresh: 'text-fresh',
-    delayed: 'text-delayed',
-    stale: 'text-stale',
-  }
+  const dotColor = freshness === 'fresh' ? 'bg-fresh animate-pulse'
+    : freshness === 'delayed' ? 'bg-delayed'
+    : freshness === 'stale' ? 'bg-stale'
+    : 'bg-surface-3'
 
-  const freshnessLabel = {
-    fresh: 'Live',
-    delayed: 'Delayed',
-    stale: 'Stale',
-  }
+  const freshnessText = freshness === 'fresh' ? 'text-fresh'
+    : freshness === 'delayed' ? 'text-delayed'
+    : freshness === 'stale' ? 'text-stale'
+    : 'text-text-muted'
 
-  useEffect(() => {
-    setMobileMenuOpen(false)
-  }, [location.pathname])
+  const freshnessLabel = { fresh: 'Live', delayed: 'Delayed', stale: 'Stale' }
 
   return (
-    <header className="sticky top-0 z-20 h-12 flex items-center px-4 gap-3 bg-surface-1/90 backdrop-blur border-b border-border-default shrink-0">
-      <button
-        className="md:hidden p-1 text-text-secondary hover:text-text-primary"
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        aria-label="Toggle menu"
-      >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" />
-        </svg>
-      </button>
+    <header className="sticky top-0 z-20 h-12 flex items-center px-4 gap-3 bg-surface-1/90 backdrop-blur-md border-b border-border-default shrink-0">
+      {/* Brand — shown on mobile (sidebar hidden), hidden on desktop */}
+      <div className="flex items-center gap-2 md:hidden">
+        <span className="w-6 h-6 rounded-md bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+          <svg className="w-3.5 h-3.5 text-accent" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="2.5" fill="currentColor" />
+            <path d="M8 1.5v2M8 12.5v2M1.5 8h2M12.5 8h2M3.4 3.4l1.4 1.4M11.2 11.2l1.4 1.4M3.4 12.6l1.4-1.4M11.2 4.8l1.4-1.4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+          </svg>
+        </span>
+        <span className="text-sm font-semibold text-text-primary tracking-tight">AI Pulse</span>
+      </div>
 
-      <span className="text-sm font-semibold text-text-primary">{label}</span>
+      {/* Page label — desktop only (mobile shows brand above) */}
+      <span className="hidden md:block text-sm font-semibold text-text-primary">{label}</span>
 
       <div className="flex-1" />
 
       {manifest && freshness && (
-        <div className="flex items-center gap-3 text-xs font-mono">
+        <div className="flex items-center gap-2.5 text-xs font-mono">
           <span className="text-text-muted hidden sm:block">
             {manifest.sourceCount} sources
           </span>
           <span className="text-text-muted hidden sm:block">
             {formatRelative(manifest.generatedAt)}
           </span>
-          <span className={`flex items-center gap-1 ${freshnessColor[freshness]}`}>
-            <span className={`w-1.5 h-1.5 rounded-full ${freshness === 'fresh' ? 'bg-fresh animate-pulse' : freshness === 'delayed' ? 'bg-delayed' : 'bg-stale'}`} />
+          <span className={`flex items-center gap-1.5 ${freshnessText}`}>
+            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dotColor}`} />
             {freshnessLabel[freshness]}
           </span>
         </div>
       )}
-
-      {mobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-surface-1 border-b border-border-default md:hidden">
-          <MobileNav />
-        </div>
-      )}
     </header>
-  )
-}
-
-function MobileNav() {
-  const NAV = [
-    { to: '#/', label: 'Overview' },
-    { to: '#/feed', label: 'Feed' },
-    { to: '#/people', label: 'People' },
-    { to: '#/topics', label: 'Topics' },
-    { to: '#/briefings', label: 'Briefings' },
-    { to: '#/about', label: 'About' },
-  ]
-  return (
-    <nav className="flex flex-col py-2">
-      {NAV.map(({ to, label }) => (
-        <a
-          key={to}
-          href={to}
-          className="px-4 py-2.5 text-sm text-text-secondary hover:text-text-primary hover:bg-surface-2"
-        >
-          {label}
-        </a>
-      ))}
-    </nav>
   )
 }
 

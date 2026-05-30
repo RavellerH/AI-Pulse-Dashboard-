@@ -16,6 +16,14 @@ const TOPIC_ICONS: Record<string, string> = {
   prompting: '✍️',
   'images-video': '🎨',
   'developer-workflows': '⚙️',
+  'ai-safety': '🛡️',
+  'ai-impact': '🌍',
+  multimodal: '🎭',
+  education: '🎓',
+  startups: '🚀',
+  'computer-vision': '👁️',
+  'ai-agents': '🤖',
+  'ai-policy': '📋',
 }
 
 export default function TopicCard({ topic }: TopicCardProps) {
@@ -24,24 +32,26 @@ export default function TopicCard({ topic }: TopicCardProps) {
   return (
     <Link
       to={`/topics#${topic.slug}`}
-      className="block bg-surface-1 border border-border-default rounded-lg p-4 hover:border-surface-3 transition-colors"
+      className="block bg-surface-1 border border-border-default rounded-xl p-4 hover:border-surface-3 hover:bg-surface-2/20 transition-all duration-150"
     >
       <div className="flex items-start justify-between gap-2 mb-2">
-        <div className="flex items-center gap-2">
-          <span className="text-lg leading-none">{icon}</span>
-          <span className="text-sm font-semibold text-text-primary">{topic.label}</span>
+        <div className="flex items-center gap-2 min-w-0">
+          <span className="text-xl leading-none shrink-0">{icon}</span>
+          <span className="text-sm font-semibold text-text-primary leading-snug">{topic.label}</span>
         </div>
-        <div className="text-right">
-          <p className="text-lg font-semibold text-accent tabular-nums">{topic.postCount24h}</p>
-          <p className="text-2xs text-text-muted">posts/24h</p>
+        <div className="text-right shrink-0">
+          <p className="text-xl font-semibold text-accent tabular-nums leading-none">{topic.postCount24h}</p>
+          <p className="text-[10px] text-text-muted mt-0.5">/ 24h</p>
         </div>
       </div>
 
-      <p className="text-xs text-text-secondary leading-relaxed mb-3 line-clamp-2">{topic.summary}</p>
+      {topic.summary && (
+        <p className="text-xs text-text-muted leading-relaxed mb-2.5 line-clamp-2">{topic.summary}</p>
+      )}
 
       <div className="flex flex-wrap gap-1">
-        {topic.topHandles.slice(0, 4).map((h) => (
-          <span key={h} className="text-2xs font-mono text-text-muted bg-surface-2 border border-border-default px-1.5 py-0.5 rounded">
+        {topic.topHandles.slice(0, 3).map((h) => (
+          <span key={h} className="text-[10px] font-mono text-text-muted/70 bg-surface-2 border border-border-subtle px-1.5 py-0.5 rounded-md">
             {h}
           </span>
         ))}
