@@ -279,6 +279,8 @@ export default function RupiahPricing() {
   const [histLoading, setHistLoading] = useState(true)
   const [histError, setHistError] = useState(false)
   const [peers, setPeers] = useState<Record<string, { now: number; then: number }>>({})
+  const [peersLoading, setPeersLoading] = useState(true)
+  const [peersError, setPeersError] = useState(false)
 
   // break-even slider
   const [income, setIncome] = useState(5396761)
@@ -379,23 +381,34 @@ export default function RupiahPricing() {
   }, [])
 
   useEffect(() => {
-    const today = new Date()
-    const yr = new Date(today); yr.setFullYear(yr.getFullYear() - 1)
-    const start = yr.toISOString().split('T')[0]
-    const currencies = 'IDR,MYR,THB,PHP,SGD'
+    // jsDelivr currency CDN: free, no auth, all ASEAN currencies guaranteed
+    // Codes are lowercase in this API (idr, myr, thb, php, sgd)
+    const CODES = ['idr', 'myr', 'thb', 'php', 'sgd']
+    const yr = new Date(); yr.setFullYear(yr.getFullYear() - 1)
+    const startStr = yr.toISOString().split('T')[0]
+    const ctrl = new AbortController()
+    const timeout = setTimeout(() => ctrl.abort(), 10000)
 
     Promise.all([
-      fetch(`https://api.frankfurter.app/latest?from=USD&to=${currencies}`).then(r => r.json()),
-      fetch(`https://api.frankfurter.app/${start}?from=USD&to=${currencies}`).then(r => r.json()),
-    ]).then(([nowData, thenData]) => {
-      const result: Record<string, { now: number; then: number }> = {}
-      for (const c of currencies.split(',')) {
-        if (nowData.rates?.[c] && thenData.rates?.[c]) {
-          result[c] = { now: nowData.rates[c], then: thenData.rates[c] }
+      fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.min.json', { signal: ctrl.signal }).then(r => r.json()),
+      fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${startStr}/v1/currencies/usd.min.json`, { signal: ctrl.signal }).then(r => r.json()),
+    ])
+      .then(([nowData, thenData]: [{ usd: Record<string, number> }, { usd: Record<string, number> }]) => {
+        const result: Record<string, { now: number; then: number }> = {}
+        for (const code of CODES) {
+          const nowVal  = nowData?.usd?.[code]
+          const thenVal = thenData?.usd?.[code]
+          if (nowVal && thenVal) {
+            result[code.toUpperCase()] = { now: nowVal, then: thenVal }
+          }
         }
-      }
-      setPeers(result)
-    }).catch(() => {})
+        if (Object.keys(result).length >= 2) setPeers(result)
+        else setPeersError(true)
+      })
+      .catch(() => setPeersError(true))
+      .finally(() => { clearTimeout(timeout); setPeersLoading(false) })
+
+    return () => { ctrl.abort(); clearTimeout(timeout) }
   }, [])
 
   // ── derived values ────────────────────────────────────────────────────────
@@ -767,9 +780,11 @@ export default function RupiahPricing() {
           <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-2.5">
             ASEAN Peer Currency Comparison (1-year vs USD)
           </p>
-          {Object.keys(peers).length === 0
-            ? <div className="h-28 bg-surface-3 rounded animate-pulse" />
-            : (
+          {peersLoading
+            ? <div className="h-28 bg-surface-3 rounded animate-pulse flex items-center justify-center"><p className="text-xs text-text-muted animate-pulse">Fetching peer rates…</p></div>
+            : peersError || Object.keys(peers).length < 2
+              ? <p className="text-xs text-text-muted py-4">Peer comparison unavailable — could not reach currency API</p>
+              : (
               <div className="space-y-2">
                 {Object.entries(peers)
                   .map(([c, { now, then }]) => ({
@@ -806,7 +821,7 @@ export default function RupiahPricing() {
             )
           }
           <p className="text-[11px] text-text-muted mt-2">
-            Positive % = currency weakened vs USD (AI subscriptions got more expensive). Source: Frankfurter API.
+            Positive % = currency weakened vs USD (AI subscriptions got more expensive). Source: fawazahmed0/currency-api via jsDelivr.
           </p>
         </div>
       </div>
