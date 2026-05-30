@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 type RatePoint = { date: string; rate: number }
 
 // ── constants ─────────────────────────────────────────────────────────────
-const BASELINE_RATE = 15866
+const BASELINE_RATE = 15500 // Jan 2024 opening (~15,439–15,550 per historical data)
 const FALLBACK_RATE = 17805
 
 const PLANS = [
@@ -414,7 +414,10 @@ export default function RupiahPricing() {
   // ── derived values ────────────────────────────────────────────────────────
   const liveRate = rate ?? FALLBACK_RATE
   const firstRate = historical.length > 0 ? historical[0].rate : BASELINE_RATE
+  // annDep: trailing 12-month depreciation (used for projections and compound forecasting)
   const annDep = (liveRate / firstRate - 1) * 100
+  // vsBaselinePct: change since fixed Jan 2024 baseline (used for the "vs Jan 2024" stat card only)
+  const vsBaselinePct = (liveRate / BASELINE_RATE - 1) * 100
   const moRate = Math.pow(1 + annDep / 100, 1 / 12) - 1
 
   const proj6m  = Math.round(liveRate * Math.pow(1 + moRate, 6))
@@ -500,8 +503,8 @@ export default function RupiahPricing() {
           </div>
           <div>
             <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-1">vs Jan 2024</p>
-            <p className={`text-2xl font-bold tabular-nums ${annDep > 0 ? 'text-red-400' : 'text-emerald-400'}`}>
-              {annDep > 0 ? '+' : ''}{annDep.toFixed(1)}%
+            <p className={`text-2xl font-bold tabular-nums ${vsBaselinePct > 0 ? 'text-red-400' : 'text-emerald-400'}`}>
+              {vsBaselinePct > 0 ? '+' : ''}{vsBaselinePct.toFixed(1)}%
             </p>
             <p className="text-[11px] text-text-muted mt-1">baseline {BASELINE_RATE.toLocaleString('id-ID')}</p>
           </div>
@@ -668,7 +671,7 @@ export default function RupiahPricing() {
           <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-2.5">Depreciation Speed</p>
           <div className="grid grid-cols-3 gap-3">
             {([
-              ['7-day (ann.)',  speed30,  '30-day proxy'],
+              ['30-day (ann.)', speed30,  'trailing 30d'],
               ['90-day (ann.)', speed90,  'trailing 90d'],
               ['1-year',        speedAnn, 'trailing 1y'],
             ] as [string, number | null, string][]).map(([label, spd, sub]) => (
