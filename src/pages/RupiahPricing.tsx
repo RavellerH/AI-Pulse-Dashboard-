@@ -293,10 +293,10 @@ export default function RupiahPricing() {
   }, [])
 
   useEffect(() => {
-    const CACHE_KEY = 'idr_hist_v1'
+    const CACHE_KEY = 'idr_hist_v2'
     const todayStr = new Date().toISOString().split('T')[0]
 
-    // Return cached data if fetched today (makes subsequent loads instant)
+    // Serve from localStorage cache if data was fetched today
     try {
       const cached = localStorage.getItem(CACHE_KEY)
       if (cached) {
@@ -307,32 +307,75 @@ export default function RupiahPricing() {
           return
         }
       }
-    } catch { /* ignore localStorage errors */ }
-
-    const yr = new Date(); yr.setFullYear(yr.getFullYear() - 1)
-    const start = yr.toISOString().split('T')[0]
+    } catch { /* ignore */ }
 
     const ctrl = new AbortController()
-    const timeout = setTimeout(() => ctrl.abort(), 8000)
+    let done = false
 
-    fetch(`https://api.frankfurter.app/${start}..${todayStr}?from=USD&to=IDR`, {
-      signal: ctrl.signal,
-    })
-      .then(r => { if (!r.ok) throw new Error('API error'); return r.json() })
+    const save = (pts: RatePoint[]) => {
+      setHistorical(pts)
+      try { localStorage.setItem(CACHE_KEY, JSON.stringify({ date: todayStr, pts })) } catch { /* ignore */ }
+    }
+
+    // --- Strategy 1: Frankfurter 1-year daily series ---
+    const yr = new Date(); yr.setFullYear(yr.getFullYear() - 1)
+    const startStr = yr.toISOString().split('T')[0]
+    const timeout1 = setTimeout(() => { if (!done) ctrl.abort() }, 7000)
+
+    fetch(`https://api.frankfurter.app/${startStr}..${todayStr}?from=USD&to=IDR`, { signal: ctrl.signal })
+      .then(r => { if (!r.ok) throw new Error(); return r.json() })
       .then(d => {
-        if (!d.rates || typeof d.rates !== 'object') throw new Error('No rates')
+        if (!d.rates || typeof d.rates !== 'object') throw new Error()
         const pts: RatePoint[] = (Object.entries(d.rates) as [string, { IDR: number }][])
           .sort(([a], [b]) => a.localeCompare(b))
           .map(([date, v]) => ({ date, rate: Math.round(v.IDR) }))
           .filter(p => Number.isFinite(p.rate))
-        if (pts.length < 2) throw new Error('Insufficient data')
-        setHistorical(pts)
-        try { localStorage.setItem(CACHE_KEY, JSON.stringify({ date: todayStr, pts })) } catch { /* ignore */ }
+        if (pts.length < 2) throw new Error()
+        done = true
+        save(pts)
+        setHistLoading(false)
       })
-      .catch(() => setHistError(true))
-      .finally(() => { clearTimeout(timeout); setHistLoading(false) })
+      .catch(() => {
+        // --- Strategy 2: jsDelivr currency CDN, one point per month ---
+        // Free CDN, no auth, IDR guaranteed, returns fast from edge cache
+        const months: string[] = []
+        for (let i = 11; i >= 0; i--) {
+          const d = new Date(); d.setDate(1); d.setMonth(d.getMonth() - i)
+          months.push(d.toISOString().split('T')[0])
+        }
+        const ctrl2 = new AbortController()
+        const timeout2 = setTimeout(() => ctrl2.abort(), 10000)
 
-    return () => { ctrl.abort(); clearTimeout(timeout) }
+        Promise.allSettled(
+          months.map(date =>
+            fetch(
+              `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${date}/v1/currencies/usd.min.json`,
+              { signal: ctrl2.signal },
+            )
+              .then(r => r.json())
+              .then((j: { usd: Record<string, number> }) => ({
+                date,
+                rate: Math.round(j.usd.idr),
+              }))
+          )
+        ).then(results => {
+          clearTimeout(timeout2)
+          const pts: RatePoint[] = results
+            .filter((r): r is PromiseFulfilledResult<RatePoint> => r.status === 'fulfilled')
+            .map(r => r.value)
+            .filter(p => Number.isFinite(p.rate))
+          if (pts.length >= 2) {
+            done = true
+            save(pts)
+          } else {
+            setHistError(true)
+          }
+        }).catch(() => setHistError(true))
+          .finally(() => setHistLoading(false))
+      })
+      .finally(() => clearTimeout(timeout1))
+
+    return () => { ctrl.abort() }
   }, [])
 
   useEffect(() => {
@@ -467,7 +510,11 @@ export default function RupiahPricing() {
 
         <div className="px-4 pt-3 pb-2">
           {histLoading
-            ? <div className="h-44 bg-surface-3 rounded-lg animate-pulse" />
+            ? (
+              <div className="h-44 bg-surface-3 rounded-lg animate-pulse flex items-center justify-center">
+                <p className="text-xs text-text-muted animate-pulse">Fetching rate history…</p>
+              </div>
+            )
             : histError
               ? (
                 <div className="h-44 flex flex-col items-center justify-center gap-2 border border-dashed border-border-default rounded-lg">
