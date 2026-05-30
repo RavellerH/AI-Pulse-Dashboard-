@@ -5,7 +5,8 @@ type RatePoint = { date: string; rate: number }
 
 // ── constants ─────────────────────────────────────────────────────────────
 const BASELINE_RATE = 15500 // Jan 2024 opening (~15,439–15,550 per historical data)
-const FALLBACK_RATE = 17805
+const FALLBACK_RATE = 17863  // May 30 2026 observed
+const THRESHOLD_20K = 20000  // worst-case watch level
 
 const PLANS = [
   { service: 'GitHub Copilot',  provider: 'GitHub',     usd: 10,    badge: 'Dev',      bc: 'text-slate-300 bg-slate-500/15 border-slate-500/30' },
@@ -76,9 +77,14 @@ const CONTEXT_ITEMS = [
     body: 'A developer using GitHub Copilot ($10) + Cursor Pro ($20) + Claude Pro ($20) pays $50/mo = ~Rp 890rb at current rates. For someone on UMK Jakarta (Rp 5.4 jt), that is 16.5% of gross salary before food, transport, or rent.',
   },
   {
+    title: 'Why the Rupiah Keeps Weakening',
+    accent: 'border-red-500/50 bg-red-900/10',
+    body: "Trump's 32% tariffs on Indonesian exports (effective Q4 2026) are widening the trade deficit. Combined with Fed rate-hold driving capital outflows from EM markets, BI's limited FX reserves, and a current account deficit, the structural pressure toward Rp 20,000 is real. Analysts (LongForecast, ING) model a 17,816–20,646 range for 2026.",
+  },
+  {
     title: 'Strategic Recommendation',
     accent: 'border-emerald-500/50 bg-emerald-900/10',
-    body: 'Use free tiers first. For API access, DeepSeek V3 is ~90% cheaper than GPT-4o with comparable quality. Reserve paid subscriptions only for tools that directly generate income.',
+    body: 'Use free tiers first. For API access, DeepSeek V3 is ~90% cheaper than GPT-4o with comparable quality. Reserve paid subscriptions only for tools that directly generate income. If buying annual plans, consider paying when the rupiah is seasonally strongest (see Cheapest Month section).',
   },
 ]
 
@@ -438,6 +444,18 @@ export default function RupiahPricing() {
   const speed90  = r90  ? annualizedRate(r90, liveRate, 90) : null
   const speedAnn = annDep
 
+  // 20k threshold calculations
+  const distanceTo20k = ((THRESHOLD_20K / liveRate) - 1) * 100
+  const monthsTo20k = moRate > 0 && liveRate < THRESHOLD_20K
+    ? Math.ceil(Math.log(THRESHOLD_20K / liveRate) / Math.log(1 + moRate))
+    : null
+  const fast10MonthsTo20k = liveRate < THRESHOLD_20K
+    ? Math.ceil(Math.log(THRESHOLD_20K / liveRate) / Math.log(Math.pow(1.10, 1 / 12)))
+    : null
+  const severe15MonthsTo20k = liveRate < THRESHOLD_20K
+    ? Math.ceil(Math.log(THRESHOLD_20K / liveRate) / Math.log(Math.pow(1.15, 1 / 12)))
+    : null
+
   // monthly averages for "best month to pay"
   const monthlyAvgMap: Record<string, { sum: number; count: number }> = {}
   historical.forEach(p => {
@@ -544,6 +562,90 @@ export default function RupiahPricing() {
         <p className="px-4 pb-3 text-[11px] text-text-muted">
           Hover for daily rate · Jan 2024 baseline dashed · cached daily · source: Frankfurter API
         </p>
+      </div>
+
+      {/* ── 20k threshold watch ── */}
+      <div className="bg-surface-1 border border-red-500/40 rounded-xl overflow-hidden">
+        <div className="px-4 py-3 border-b border-red-500/20 bg-red-900/15 flex items-start justify-between gap-3">
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-red-400 font-bold text-sm">⚠</span>
+              <p className="text-sm font-semibold text-text-primary">Rp 20,000 Threshold Watch</p>
+            </div>
+            <p className="text-xs text-text-muted mt-0.5">
+              1-year high: ~17,889 (May 29, 2026) · Analysts model 19,000+ by Oct–Nov 2026 · worst-case range up to 20,646
+            </p>
+          </div>
+          <span className="shrink-0 text-xs font-semibold px-2 py-0.5 rounded border border-red-500/40 text-red-400 bg-red-900/20">WATCH</span>
+        </div>
+
+        {/* Distance + timelines */}
+        <div className="px-4 py-3 grid grid-cols-2 sm:grid-cols-4 gap-4 border-b border-border-default">
+          <div>
+            <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-1">Distance to 20k</p>
+            <p className="text-2xl font-bold text-orange-400 tabular-nums">+{distanceTo20k.toFixed(1)}%</p>
+            <p className="text-[11px] text-text-muted mt-1">from {liveRate.toLocaleString('id-ID')} now</p>
+          </div>
+          <div>
+            <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-1">At current pace</p>
+            {monthsTo20k !== null
+              ? <><p className="text-2xl font-bold text-red-400 tabular-nums">{monthsTo20k}mo</p>
+                  <p className="text-[11px] text-text-muted mt-1">{annDep.toFixed(1)}% ann. trailing</p></>
+              : <p className="text-sm text-emerald-400">Rate stable</p>
+            }
+          </div>
+          <div>
+            <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-1">Fast (10%/yr)</p>
+            {fast10MonthsTo20k !== null
+              ? <><p className="text-2xl font-bold text-red-400 tabular-nums">{fast10MonthsTo20k}mo</p>
+                  <p className="text-[11px] text-text-muted mt-1">10% annual</p></>
+              : <p className="text-sm text-text-muted">—</p>
+            }
+          </div>
+          <div>
+            <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-1">Severe (15%/yr)</p>
+            {severe15MonthsTo20k !== null
+              ? <><p className="text-2xl font-bold text-red-500 tabular-nums">{severe15MonthsTo20k}mo</p>
+                  <p className="text-[11px] text-text-muted mt-1">15% annual</p></>
+              : <p className="text-sm text-text-muted">—</p>
+            }
+          </div>
+        </div>
+
+        {/* Cost at 20k */}
+        <div className="px-4 py-3 border-b border-border-default">
+          <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-2.5">AI Subscription Cost If Rate Hits 20,000</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {([10, 20, 100, 200] as const).map(usd => {
+              const atTarget = toIDR(usd, THRESHOLD_20K)
+              const now      = toIDR(usd, liveRate)
+              const vsBase   = toIDR(usd, BASELINE_RATE)
+              return (
+                <div key={usd} className="bg-red-900/10 border border-red-500/15 rounded-lg p-3 text-center">
+                  <p className="text-[11px] text-text-muted mb-1 font-medium">${usd}/mo</p>
+                  <p className="text-lg font-bold text-red-400 tabular-nums">{fmtShort(atTarget)}</p>
+                  <p className="text-[11px] text-orange-400 mt-0.5">+{fmtShort(atTarget - now)} vs now</p>
+                  <p className="text-[11px] text-text-muted mt-0.5">+{fmtShort(atTarget - vsBase)} vs Jan'24</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Drivers */}
+        <div className="px-4 py-3">
+          <p className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-2">Structural Drivers Behind the 20k Risk</p>
+          <div className="space-y-1.5 text-xs text-text-secondary leading-relaxed">
+            <p>· <span className="text-text-primary font-medium">Trump tariffs 32%</span> on Indonesian exports effective Q4 2026 — widens trade deficit, pressures rupiah directly</p>
+            <p>· <span className="text-text-primary font-medium">Fed rate hold</span> — elevated USD rates trigger EM capital outflows; investors repatriate to USD assets</p>
+            <p>· <span className="text-text-primary font-medium">BI limited firepower</span> — Bank Indonesia FX reserves constrained; each intervention is temporary</p>
+            <p>· <span className="text-text-primary font-medium">Current account deficit</span> + import costs rising with weaker rupiah (self-reinforcing loop)</p>
+          </div>
+          <p className="text-[11px] text-text-muted mt-2.5 border-t border-border-default pt-2">
+            Rp 20,000 is not guaranteed — BI rate hikes, commodity export recovery, or dollar weakness could reverse trend.
+            Sources: LongForecast, ING Think, The Diplomat (May 2026).
+          </p>
+        </div>
       </div>
 
       {/* ── projections ── */}
