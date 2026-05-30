@@ -25,6 +25,10 @@ const PLATFORM_LABEL: Partial<Record<Platform, string>> = {
   bluesky: 'Bluesky',
   arxiv: 'arXiv',
   hackernews: 'HN',
+  reddit: 'Reddit',
+  youtube: 'YouTube',
+  producthunt: 'PH',
+  devto: 'dev.to',
 }
 
 export default function PostCard({ post, compact = false }: PostCardProps) {

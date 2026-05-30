@@ -1,6 +1,121 @@
 {
-  "generatedAt": "2026-05-28T05:18:05Z",
+  "generatedAt": "2026-05-30T00:38:42Z",
   "people": [
+    {
+      "handle": "@r/MachineLearning",
+      "displayName": "r/MachineLearning",
+      "group": "Research",
+      "lastPostedAt": "2026-05-29T22:48:42Z",
+      "posts7d": 1,
+      "topTopics": [
+        "research-papers",
+        "llms"
+      ],
+      "currentFocus": "Posting mostly about research-papers, llms this week."
+    },
+    {
+      "handle": "@r/LocalLLaMA",
+      "displayName": "r/LocalLLaMA",
+      "group": "Builders",
+      "lastPostedAt": "2026-05-29T21:18:42Z",
+      "posts7d": 1,
+      "topTopics": [
+        "open-source",
+        "llms",
+        "developer-workflows"
+      ],
+      "currentFocus": "Posting mostly about open-source, llms this week."
+    },
+    {
+      "handle": "@ProductHunt",
+      "displayName": "Product Hunt",
+      "group": "Builders",
+      "lastPostedAt": "2026-05-29T20:38:42Z",
+      "posts7d": 2,
+      "topTopics": [
+        "startups",
+        "developer-workflows",
+        "llms"
+      ],
+      "currentFocus": "Posting mostly about startups, developer-workflows this week."
+    },
+    {
+      "handle": "@r/artificial",
+      "displayName": "r/artificial",
+      "group": "Media",
+      "lastPostedAt": "2026-05-29T18:53:42Z",
+      "posts7d": 1,
+      "topTopics": [
+        "llms",
+        "openai-updates"
+      ],
+      "currentFocus": "Posting mostly about llms, openai-updates this week."
+    },
+    {
+      "handle": "@swyx",
+      "displayName": "swyx · dev.to",
+      "group": "Builders",
+      "lastPostedAt": "2026-05-29T18:23:42Z",
+      "posts7d": 1,
+      "topTopics": [
+        "developer-workflows",
+        "llms",
+        "ai-agents"
+      ],
+      "currentFocus": "Posting mostly about developer-workflows, llms this week."
+    },
+    {
+      "handle": "@TwoMinutePapers",
+      "displayName": "Two Minute Papers",
+      "group": "Research",
+      "lastPostedAt": "2026-05-29T16:38:42Z",
+      "posts7d": 1,
+      "topTopics": [
+        "llms",
+        "research-papers",
+        "openai-updates"
+      ],
+      "currentFocus": "Posting mostly about llms, research-papers this week."
+    },
+    {
+      "handle": "@simonw",
+      "displayName": "Simon Willison · dev.to",
+      "group": "Builders",
+      "lastPostedAt": "2026-05-29T14:53:42Z",
+      "posts7d": 1,
+      "topTopics": [
+        "developer-workflows",
+        "open-source",
+        "llms"
+      ],
+      "currentFocus": "Posting mostly about developer-workflows, open-source this week."
+    },
+    {
+      "handle": "@YannicKilcher",
+      "displayName": "Yannic Kilcher",
+      "group": "Research",
+      "lastPostedAt": "2026-05-29T14:08:42Z",
+      "posts7d": 1,
+      "topTopics": [
+        "research-papers",
+        "llms",
+        "open-source"
+      ],
+      "currentFocus": "Posting mostly about research-papers, llms this week."
+    },
+    {
+      "handle": "@lexfridman",
+      "displayName": "Lex Fridman",
+      "group": "Media",
+      "lastPostedAt": "2026-05-29T06:38:42Z",
+      "posts7d": 1,
+      "topTopics": [
+        "llms",
+        "ai-safety",
+        "openai-updates"
+      ],
+      "currentFocus": "Posting mostly about llms, ai-safety this week."
+    },
     {
       "handle": "@karpathy",
       "displayName": "Andrej Karpathy",

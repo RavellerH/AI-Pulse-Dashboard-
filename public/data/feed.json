@@ -1,6 +1,253 @@
 {
-  "generatedAt": "2026-05-28T05:18:05Z",
+  "generatedAt": "2026-05-30T00:38:42Z",
   "posts": [
+    {
+      "id": "reddit_a1b2c3d4e5f6g7h8",
+      "platform": "reddit",
+      "handle": "@r/MachineLearning",
+      "displayName": "r/MachineLearning",
+      "group": "Research",
+      "postedAt": "2026-05-29T22:48:42Z",
+      "text": "[Discussion] What is the most underrated paper of 2025?\n\nWith all the o3/Claude 4 noise, I feel like a lot of solid theoretical work is going unnoticed. What have you read this year that deserves more attention?",
+      "summary": "[Discussion] What is the most underrated paper of 2025?",
+      "topics": [
+        "research-papers",
+        "llms"
+      ],
+      "intent": "opinion",
+      "importanceScore": 0.72,
+      "whyItMatters": null,
+      "engagement": {
+        "likes": 843,
+        "reposts": 0,
+        "replies": 210,
+        "quotes": 0
+      },
+      "url": "https://www.reddit.com/r/MachineLearning/comments/a1b2c3/underrated_papers_2025/"
+    },
+    {
+      "id": "reddit_b2c3d4e5f6g7h8i9",
+      "platform": "reddit",
+      "handle": "@r/LocalLLaMA",
+      "displayName": "r/LocalLLaMA",
+      "group": "Builders",
+      "postedAt": "2026-05-29T21:18:42Z",
+      "text": "Llama 3.3 70B runs at 35 tok/s on a single 3090 with llama.cpp Q4_K_M. Here is my setup and benchmark results.\n\nUsing 24GB VRAM, context 8k, no offload.",
+      "summary": "Llama 3.3 70B benchmark: 35 tok/s on a single RTX 3090 with Q4_K_M quantization.",
+      "topics": [
+        "open-source",
+        "llms",
+        "developer-workflows"
+      ],
+      "intent": "product",
+      "importanceScore": 0.78,
+      "whyItMatters": null,
+      "engagement": {
+        "likes": 1204,
+        "reposts": 0,
+        "replies": 187,
+        "quotes": 0
+      },
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/b2c3d4/llama33_70b_35_toks_single_3090/"
+    },
+    {
+      "id": "ph_g7h8i9j0k1l2m3n4",
+      "platform": "producthunt",
+      "handle": "@ProductHunt",
+      "displayName": "Product Hunt",
+      "group": "Builders",
+      "postedAt": "2026-05-29T20:38:42Z",
+      "text": "Cursor 1.0 — The AI-first code editor\n\nBuild software faster with an editor that knows your codebase. Cursor uses GPT-4 to autocomplete, answer questions, and edit entire files.",
+      "summary": "Cursor 1.0 — The AI-first code editor",
+      "topics": [
+        "startups",
+        "developer-workflows"
+      ],
+      "intent": "product",
+      "importanceScore": 0.65,
+      "whyItMatters": null,
+      "engagement": {
+        "likes": 0,
+        "reposts": 0,
+        "replies": 0,
+        "quotes": 0
+      },
+      "url": "https://www.producthunt.com/posts/cursor-1-0"
+    },
+    {
+      "id": "reddit_c3d4e5f6g7h8i9j0",
+      "platform": "reddit",
+      "handle": "@r/artificial",
+      "displayName": "r/artificial",
+      "group": "Media",
+      "postedAt": "2026-05-29T18:53:42Z",
+      "text": "OpenAI announces GPT-5 will have a dedicated \"reasoning budget\" slider — users can trade speed for accuracy on complex tasks.",
+      "summary": "GPT-5 to feature user-controlled reasoning budget for speed vs. accuracy tradeoff.",
+      "topics": [
+        "llms",
+        "openai-updates"
+      ],
+      "intent": "product",
+      "importanceScore": 0.82,
+      "whyItMatters": null,
+      "engagement": {
+        "likes": 2341,
+        "reposts": 0,
+        "replies": 412,
+        "quotes": 0
+      },
+      "url": "https://www.reddit.com/r/artificial/comments/c3d4e5/gpt5_reasoning_budget/"
+    },
+    {
+      "id": "devto_i9j0k1l2m3n4o5p6",
+      "platform": "devto",
+      "handle": "@swyx",
+      "displayName": "swyx · dev.to",
+      "group": "Builders",
+      "postedAt": "2026-05-29T18:23:42Z",
+      "text": "The AI Engineer Stack in 2025\n\nAfter a year of building AI products, here is what the winning stack looks like: embeddings + vector DBs + LLM APIs + evals. Everything else is distraction.",
+      "summary": "The AI Engineer Stack in 2025",
+      "topics": [
+        "developer-workflows",
+        "llms",
+        "ai-agents"
+      ],
+      "intent": "research",
+      "importanceScore": 0.74,
+      "whyItMatters": null,
+      "engagement": {
+        "likes": 432,
+        "reposts": 0,
+        "replies": 67,
+        "quotes": 0
+      },
+      "url": "https://dev.to/swyx/the-ai-engineer-stack-2025"
+    },
+    {
+      "id": "ph_h8i9j0k1l2m3n4o5",
+      "platform": "producthunt",
+      "handle": "@ProductHunt",
+      "displayName": "Product Hunt",
+      "group": "Builders",
+      "postedAt": "2026-05-29T17:08:42Z",
+      "text": "Perplexity AI 3.0 — AI-powered answer engine\n\nReal-time answers with citations. Perplexity 3.0 introduces Deep Research mode, voice input, and a new Pro tier with Claude 3.5 Sonnet.",
+      "summary": "Perplexity AI 3.0 launches with Deep Research mode and voice input.",
+      "topics": [
+        "startups",
+        "llms",
+        "developer-workflows"
+      ],
+      "intent": "product",
+      "importanceScore": 0.65,
+      "whyItMatters": null,
+      "engagement": {
+        "likes": 0,
+        "reposts": 0,
+        "replies": 0,
+        "quotes": 0
+      },
+      "url": "https://www.producthunt.com/posts/perplexity-ai-3"
+    },
+    {
+      "id": "youtube_d4e5f6g7h8i9j0k1",
+      "platform": "youtube",
+      "handle": "@TwoMinutePapers",
+      "displayName": "Two Minute Papers",
+      "group": "Research",
+      "postedAt": "2026-05-29T16:38:42Z",
+      "text": "OpenAI o3 Beats All Benchmarks - What Does This Mean?\n\nIn this video we look at the new OpenAI o3 model that crushes every previous benchmark including ARC-AGI. Is this AGI?",
+      "summary": "[Video] OpenAI o3 Beats All Benchmarks - What Does This Mean?",
+      "topics": [
+        "llms",
+        "research-papers",
+        "openai-updates"
+      ],
+      "intent": "research",
+      "importanceScore": 0.7,
+      "whyItMatters": null,
+      "engagement": {
+        "likes": 0,
+        "reposts": 0,
+        "replies": 0,
+        "quotes": 0
+      },
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+      "id": "devto_j0k1l2m3n4o5p6q7",
+      "platform": "devto",
+      "handle": "@simonw",
+      "displayName": "Simon Willison · dev.to",
+      "group": "Builders",
+      "postedAt": "2026-05-29T14:53:42Z",
+      "text": "Running LLMs locally with Ollama and Open WebUI\n\nA step-by-step guide to setting up a private, local LLM that runs entirely on your machine. No API keys, no data leaving your computer.",
+      "summary": "Running LLMs locally with Ollama and Open WebUI",
+      "topics": [
+        "developer-workflows",
+        "open-source",
+        "llms"
+      ],
+      "intent": "research",
+      "importanceScore": 0.68,
+      "whyItMatters": null,
+      "engagement": {
+        "likes": 289,
+        "reposts": 0,
+        "replies": 43,
+        "quotes": 0
+      },
+      "url": "https://dev.to/simonw/running-llms-locally-ollama-open-webui"
+    },
+    {
+      "id": "youtube_e5f6g7h8i9j0k1l2",
+      "platform": "youtube",
+      "handle": "@YannicKilcher",
+      "displayName": "Yannic Kilcher",
+      "group": "Research",
+      "postedAt": "2026-05-29T14:08:42Z",
+      "text": "DeepSeek R1 Paper Explained - Chain of Thought Done Right\n\nDeepSeek released R1, a reasoning model trained with reinforcement learning on chain-of-thought traces. I walk through the paper in detail.",
+      "summary": "[Video] DeepSeek R1 Paper Explained - Chain of Thought Done Right",
+      "topics": [
+        "research-papers",
+        "llms",
+        "open-source"
+      ],
+      "intent": "research",
+      "importanceScore": 0.7,
+      "whyItMatters": null,
+      "engagement": {
+        "likes": 0,
+        "reposts": 0,
+        "replies": 0,
+        "quotes": 0
+      },
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcR"
+    },
+    {
+      "id": "youtube_f6g7h8i9j0k1l2m3",
+      "platform": "youtube",
+      "handle": "@lexfridman",
+      "displayName": "Lex Fridman",
+      "group": "Media",
+      "postedAt": "2026-05-29T06:38:42Z",
+      "text": "Sam Altman: OpenAI, GPT-5, Superintelligence, and the Future of AI\n\nSam Altman, CEO of OpenAI, talks about the path to superintelligence, what makes a great AI safety researcher, and how he thinks about AI risks.",
+      "summary": "[Video] Sam Altman on GPT-5, Superintelligence, and the Future of AI",
+      "topics": [
+        "llms",
+        "ai-safety",
+        "openai-updates"
+      ],
+      "intent": "opinion",
+      "importanceScore": 0.7,
+      "whyItMatters": null,
+      "engagement": {
+        "likes": 0,
+        "reposts": 0,
+        "replies": 0,
+        "quotes": 0
+      },
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcS"
+    },
     {
       "id": "x_1893210847362945024",
       "platform": "x",
@@ -52,6 +299,30 @@
       "url": "https://x.com/ylecun/status/1893198421057900544"
     },
     {
+      "id": "hn_5d6e7f8g9h0i1j2k",
+      "platform": "hackernews",
+      "handle": "@dang",
+      "displayName": "HN · dang",
+      "group": "Media",
+      "postedAt": "2026-05-28T02:33:05Z",
+      "text": "OpenAI releases o3 and o4-mini\n\nhttps://openai.com/o3",
+      "summary": "OpenAI releases o3 and o4-mini",
+      "topics": [
+        "llms",
+        "openai-updates"
+      ],
+      "intent": "opinion",
+      "importanceScore": 0.87,
+      "whyItMatters": null,
+      "engagement": {
+        "likes": 1843,
+        "reposts": 0,
+        "replies": 412,
+        "quotes": 0
+      },
+      "url": "https://news.ycombinator.com/item?id=43720481"
+    },
+    {
       "id": "x_1893187234801115136",
       "platform": "x",
       "handle": "@sama",
@@ -77,6 +348,56 @@
       "url": "https://x.com/sama/status/1893187234801115136"
     },
     {
+      "id": "bsky_3lbm4n5o6p7q8r9s",
+      "platform": "bluesky",
+      "handle": "@ylecun.bsky.social",
+      "displayName": "Yann LeCun",
+      "group": "Research",
+      "postedAt": "2026-05-28T01:38:05Z",
+      "text": "The obsession with scaling transformers is a local optimum. JEPA is one promising direction away from it.",
+      "summary": "LeCun advocates for JEPA architecture as alternative to transformer scaling.",
+      "topics": [
+        "research-papers",
+        "llms",
+        "ai-safety"
+      ],
+      "intent": "opinion",
+      "importanceScore": 0.8,
+      "whyItMatters": "A leading researcher's architecture thesis challenging the scaling consensus.",
+      "engagement": {
+        "likes": 890,
+        "reposts": 210,
+        "replies": 95,
+        "quotes": 0
+      },
+      "url": "https://bsky.app/profile/ylecun.bsky.social/post/3lbm4n5o6p7q8r9s"
+    },
+    {
+      "id": "hn_6e7f8g9h0i1j2k3l",
+      "platform": "hackernews",
+      "handle": "@tptacek",
+      "displayName": "HN · tptacek",
+      "group": "Media",
+      "postedAt": "2026-05-28T01:08:05Z",
+      "text": "Show HN: Local-first AI coding assistant that runs entirely in-browser\n\nhttps://github.com/example/local-ai-coder",
+      "summary": "Show HN: Local-first AI coding assistant runs entirely in-browser",
+      "topics": [
+        "developer-workflows",
+        "open-source",
+        "llms"
+      ],
+      "intent": "product",
+      "importanceScore": 0.65,
+      "whyItMatters": null,
+      "engagement": {
+        "likes": 387,
+        "reposts": 0,
+        "replies": 89,
+        "quotes": 0
+      },
+      "url": "https://news.ycombinator.com/item?id=43720382"
+    },
+    {
       "id": "x_1893175912043118592",
       "platform": "x",
       "handle": "@emollick",
@@ -100,6 +421,31 @@
         "quotes": 150
       },
       "url": "https://x.com/emollick/status/1893175912043118592"
+    },
+    {
+      "id": "bsky_3lbm7n8o9p0q1r2s",
+      "platform": "bluesky",
+      "handle": "@emollick.bsky.social",
+      "displayName": "Ethan Mollick",
+      "group": "Media",
+      "postedAt": "2026-05-28T00:03:05Z",
+      "text": "People who use AI consistently underestimate how much it improved their output. Our mental models of AI capability are lagging.",
+      "summary": "Research shows people underestimate AI contribution to their work quality.",
+      "topics": [
+        "ai-impact",
+        "education",
+        "llms"
+      ],
+      "intent": "research",
+      "importanceScore": 0.78,
+      "whyItMatters": "Understanding AI impact is crucial for adoption decisions.",
+      "engagement": {
+        "likes": 1200,
+        "reposts": 380,
+        "replies": 67,
+        "quotes": 0
+      },
+      "url": "https://bsky.app/profile/emollick.bsky.social/post/3lbm7n8o9p0q1r2s"
     },
     {
       "id": "x_1893164587234516992",
@@ -152,6 +498,31 @@
       "url": "https://x.com/AnthropicAI/status/1893153241902809088"
     },
     {
+      "id": "hn_7f8g9h0i1j2k3l4m",
+      "platform": "hackernews",
+      "handle": "@pg",
+      "displayName": "HN · pg",
+      "group": "Media",
+      "postedAt": "2026-05-27T22:48:05Z",
+      "text": "Anthropic raises 4B from Amazon - Claude to power AWS Bedrock\n\nhttps://www.anthropic.com/news/amazon-investment",
+      "summary": "Anthropic raises 4B from Amazon; Claude to power AWS Bedrock",
+      "topics": [
+        "startups",
+        "llms",
+        "anthropic-updates"
+      ],
+      "intent": "opinion",
+      "importanceScore": 0.91,
+      "whyItMatters": null,
+      "engagement": {
+        "likes": 1205,
+        "reposts": 0,
+        "replies": 287,
+        "quotes": 0
+      },
+      "url": "https://news.ycombinator.com/item?id=43719200"
+    },
+    {
       "id": "rss_a3f2b1c4d5e6f789",
       "platform": "rss",
       "handle": "@OpenAI",
@@ -175,6 +546,31 @@
         "quotes": 0
       },
       "url": "https://openai.com/blog/gpt-4o-multimodal-update"
+    },
+    {
+      "id": "hn_8g9h0i1j2k3l4m5n",
+      "platform": "hackernews",
+      "handle": "@visakanv",
+      "displayName": "HN · visakanv",
+      "group": "Media",
+      "postedAt": "2026-05-27T21:18:05Z",
+      "text": "Ask HN: What is your workflow for using LLMs in production?",
+      "summary": "Ask HN: What is your workflow for using LLMs in production?",
+      "topics": [
+        "developer-workflows",
+        "llms",
+        "ai-agents"
+      ],
+      "intent": "opinion",
+      "importanceScore": 0.6,
+      "whyItMatters": null,
+      "engagement": {
+        "likes": 612,
+        "reposts": 0,
+        "replies": 203,
+        "quotes": 0
+      },
+      "url": "https://news.ycombinator.com/item?id=43718500"
     },
     {
       "id": "rss_b2c3d4e5f6a78901",
@@ -202,131 +598,6 @@
       "url": "https://www.anthropic.com/news/claudes-character"
     },
     {
-      "id": "rss_c3d4e5f6a7b89012",
-      "platform": "rss",
-      "handle": "@GoogleDeepMind",
-      "displayName": "Google DeepMind",
-      "group": "Frontier",
-      "postedAt": "2026-05-27T19:18:05Z",
-      "text": "Gemini 2.0 Flash: Our fastest model yet\n\n3x faster inference than Gemini 1.5 Flash with comparable quality.",
-      "summary": "Gemini 2.0 Flash delivers 3x faster inference than its predecessor.",
-      "topics": [
-        "llms",
-        "developer-workflows",
-        "google-updates"
-      ],
-      "intent": "product",
-      "importanceScore": 0.86,
-      "whyItMatters": "3x speed improvement makes real-time AI dramatically more cost-effective.",
-      "engagement": {
-        "likes": 0,
-        "reposts": 0,
-        "replies": 0,
-        "quotes": 0
-      },
-      "url": "https://deepmind.google/discover/blog/gemini-2-flash/"
-    },
-    {
-      "id": "rss_d4e5f6a7b8c90123",
-      "platform": "rss",
-      "handle": "@lilianweng",
-      "displayName": "Lilian Weng",
-      "group": "Research",
-      "postedAt": "2026-05-27T15:18:05Z",
-      "text": "Reasoning with LLMs: A Survey\n\nThis post surveys chain-of-thought, self-consistency, tree-of-thought, and process reward models.",
-      "summary": "Survey of LLM reasoning techniques: CoT, self-consistency, ToT, and PRMs.",
-      "topics": [
-        "llms",
-        "research-papers",
-        "ai-agents"
-      ],
-      "intent": "research",
-      "importanceScore": 0.89,
-      "whyItMatters": "Bird-eye view of reasoning techniques from a top OpenAI researcher.",
-      "engagement": {
-        "likes": 0,
-        "reposts": 0,
-        "replies": 0,
-        "quotes": 0
-      },
-      "url": "https://lilianweng.github.io/posts/2024-11-28-reasoning-llm/"
-    },
-    {
-      "id": "rss_e5f6a7b8c9d01234",
-      "platform": "rss",
-      "handle": "@huggingface",
-      "displayName": "Hugging Face",
-      "group": "Research",
-      "postedAt": "2026-05-27T12:58:05Z",
-      "text": "SmolLM2: Powerful small language models for on-device AI\n\n135M-1.7B models for device-constrained benchmarks. Apache 2.0.",
-      "summary": "Hugging Face releases SmolLM2 (135M-1.7B) for on-device AI.",
-      "topics": [
-        "open-source",
-        "llms",
-        "developer-workflows"
-      ],
-      "intent": "product",
-      "importanceScore": 0.82,
-      "whyItMatters": "Small open-source models democratize AI for mobile and edge deployments.",
-      "engagement": {
-        "likes": 0,
-        "reposts": 0,
-        "replies": 0,
-        "quotes": 0
-      },
-      "url": "https://huggingface.co/blog/smollm2"
-    },
-    {
-      "id": "bsky_3lbm4n5o6p7q8r9s",
-      "platform": "bluesky",
-      "handle": "@ylecun.bsky.social",
-      "displayName": "Yann LeCun",
-      "group": "Research",
-      "postedAt": "2026-05-28T01:38:05Z",
-      "text": "The obsession with scaling transformers is a local optimum. JEPA is one promising direction away from it.",
-      "summary": "LeCun advocates for JEPA architecture as alternative to transformer scaling.",
-      "topics": [
-        "research-papers",
-        "llms",
-        "ai-safety"
-      ],
-      "intent": "opinion",
-      "importanceScore": 0.8,
-      "whyItMatters": "A leading researcher's architecture thesis challenging the scaling consensus.",
-      "engagement": {
-        "likes": 890,
-        "reposts": 210,
-        "replies": 95,
-        "quotes": 0
-      },
-      "url": "https://bsky.app/profile/ylecun.bsky.social/post/3lbm4n5o6p7q8r9s"
-    },
-    {
-      "id": "bsky_3lbm7n8o9p0q1r2s",
-      "platform": "bluesky",
-      "handle": "@emollick.bsky.social",
-      "displayName": "Ethan Mollick",
-      "group": "Media",
-      "postedAt": "2026-05-28T00:03:05Z",
-      "text": "People who use AI consistently underestimate how much it improved their output. Our mental models of AI capability are lagging.",
-      "summary": "Research shows people underestimate AI contribution to their work quality.",
-      "topics": [
-        "ai-impact",
-        "education",
-        "llms"
-      ],
-      "intent": "research",
-      "importanceScore": 0.78,
-      "whyItMatters": "Understanding AI impact is crucial for adoption decisions.",
-      "engagement": {
-        "likes": 1200,
-        "reposts": 380,
-        "replies": 67,
-        "quotes": 0
-      },
-      "url": "https://bsky.app/profile/emollick.bsky.social/post/3lbm7n8o9p0q1r2s"
-    },
-    {
       "id": "bsky_3lbm9n0o1p2q3r4s",
       "platform": "bluesky",
       "handle": "@karpathy.bsky.social",
@@ -350,6 +621,31 @@
         "quotes": 0
       },
       "url": "https://bsky.app/profile/karpathy.bsky.social/post/3lbm9n0o1p2q3r4s"
+    },
+    {
+      "id": "rss_c3d4e5f6a7b89012",
+      "platform": "rss",
+      "handle": "@GoogleDeepMind",
+      "displayName": "Google DeepMind",
+      "group": "Frontier",
+      "postedAt": "2026-05-27T19:18:05Z",
+      "text": "Gemini 2.0 Flash: Our fastest model yet\n\n3x faster inference than Gemini 1.5 Flash with comparable quality.",
+      "summary": "Gemini 2.0 Flash delivers 3x faster inference than its predecessor.",
+      "topics": [
+        "llms",
+        "developer-workflows",
+        "google-updates"
+      ],
+      "intent": "product",
+      "importanceScore": 0.86,
+      "whyItMatters": "3x speed improvement makes real-time AI dramatically more cost-effective.",
+      "engagement": {
+        "likes": 0,
+        "reposts": 0,
+        "replies": 0,
+        "quotes": 0
+      },
+      "url": "https://deepmind.google/discover/blog/gemini-2-flash/"
     },
     {
       "id": "arxiv_2a3b4c5d6e7f8g9h",
@@ -402,6 +698,31 @@
       "url": "https://arxiv.org/abs/2212.08073"
     },
     {
+      "id": "rss_d4e5f6a7b8c90123",
+      "platform": "rss",
+      "handle": "@lilianweng",
+      "displayName": "Lilian Weng",
+      "group": "Research",
+      "postedAt": "2026-05-27T15:18:05Z",
+      "text": "Reasoning with LLMs: A Survey\n\nThis post surveys chain-of-thought, self-consistency, tree-of-thought, and process reward models.",
+      "summary": "Survey of LLM reasoning techniques: CoT, self-consistency, ToT, and PRMs.",
+      "topics": [
+        "llms",
+        "research-papers",
+        "ai-agents"
+      ],
+      "intent": "research",
+      "importanceScore": 0.89,
+      "whyItMatters": "Bird-eye view of reasoning techniques from a top OpenAI researcher.",
+      "engagement": {
+        "likes": 0,
+        "reposts": 0,
+        "replies": 0,
+        "quotes": 0
+      },
+      "url": "https://lilianweng.github.io/posts/2024-11-28-reasoning-llm/"
+    },
+    {
       "id": "arxiv_4c5d6e7f8g9h0i1j",
       "platform": "arxiv",
       "handle": "@arxiv",
@@ -427,103 +748,29 @@
       "url": "https://arxiv.org/abs/2201.11903"
     },
     {
-      "id": "hn_5d6e7f8g9h0i1j2k",
-      "platform": "hackernews",
-      "handle": "@dang",
-      "displayName": "HN · dang",
-      "group": "Media",
-      "postedAt": "2026-05-28T02:33:05Z",
-      "text": "OpenAI releases o3 and o4-mini\n\nhttps://openai.com/o3",
-      "summary": "OpenAI releases o3 and o4-mini",
+      "id": "rss_e5f6a7b8c9d01234",
+      "platform": "rss",
+      "handle": "@huggingface",
+      "displayName": "Hugging Face",
+      "group": "Research",
+      "postedAt": "2026-05-27T12:58:05Z",
+      "text": "SmolLM2: Powerful small language models for on-device AI\n\n135M-1.7B models for device-constrained benchmarks. Apache 2.0.",
+      "summary": "Hugging Face releases SmolLM2 (135M-1.7B) for on-device AI.",
       "topics": [
-        "llms",
-        "openai-updates"
-      ],
-      "intent": "opinion",
-      "importanceScore": 0.87,
-      "whyItMatters": null,
-      "engagement": {
-        "likes": 1843,
-        "reposts": 0,
-        "replies": 412,
-        "quotes": 0
-      },
-      "url": "https://news.ycombinator.com/item?id=43720481"
-    },
-    {
-      "id": "hn_6e7f8g9h0i1j2k3l",
-      "platform": "hackernews",
-      "handle": "@tptacek",
-      "displayName": "HN · tptacek",
-      "group": "Media",
-      "postedAt": "2026-05-28T01:08:05Z",
-      "text": "Show HN: Local-first AI coding assistant that runs entirely in-browser\n\nhttps://github.com/example/local-ai-coder",
-      "summary": "Show HN: Local-first AI coding assistant runs entirely in-browser",
-      "topics": [
-        "developer-workflows",
         "open-source",
-        "llms"
+        "llms",
+        "developer-workflows"
       ],
       "intent": "product",
-      "importanceScore": 0.65,
-      "whyItMatters": null,
+      "importanceScore": 0.82,
+      "whyItMatters": "Small open-source models democratize AI for mobile and edge deployments.",
       "engagement": {
-        "likes": 387,
+        "likes": 0,
         "reposts": 0,
-        "replies": 89,
+        "replies": 0,
         "quotes": 0
       },
-      "url": "https://news.ycombinator.com/item?id=43720382"
-    },
-    {
-      "id": "hn_7f8g9h0i1j2k3l4m",
-      "platform": "hackernews",
-      "handle": "@pg",
-      "displayName": "HN · pg",
-      "group": "Media",
-      "postedAt": "2026-05-27T22:48:05Z",
-      "text": "Anthropic raises 4B from Amazon - Claude to power AWS Bedrock\n\nhttps://www.anthropic.com/news/amazon-investment",
-      "summary": "Anthropic raises 4B from Amazon; Claude to power AWS Bedrock",
-      "topics": [
-        "startups",
-        "llms",
-        "anthropic-updates"
-      ],
-      "intent": "opinion",
-      "importanceScore": 0.91,
-      "whyItMatters": null,
-      "engagement": {
-        "likes": 1205,
-        "reposts": 0,
-        "replies": 287,
-        "quotes": 0
-      },
-      "url": "https://news.ycombinator.com/item?id=43719200"
-    },
-    {
-      "id": "hn_8g9h0i1j2k3l4m5n",
-      "platform": "hackernews",
-      "handle": "@visakanv",
-      "displayName": "HN · visakanv",
-      "group": "Media",
-      "postedAt": "2026-05-27T21:18:05Z",
-      "text": "Ask HN: What is your workflow for using LLMs in production?",
-      "summary": "Ask HN: What is your workflow for using LLMs in production?",
-      "topics": [
-        "developer-workflows",
-        "llms",
-        "ai-agents"
-      ],
-      "intent": "opinion",
-      "importanceScore": 0.6,
-      "whyItMatters": null,
-      "engagement": {
-        "likes": 612,
-        "reposts": 0,
-        "replies": 203,
-        "quotes": 0
-      },
-      "url": "https://news.ycombinator.com/item?id=43718500"
+      "url": "https://huggingface.co/blog/smollm2"
     }
   ]
 }

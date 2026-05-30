@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-05-28T05:18:05Z",
+  "generatedAt": "2026-05-30T00:38:42Z",
   "briefings": [
+    {
+      "id": "hourly-2026-05-30T00",
+      "window": "1h",
+      "title": "Hourly Pulse — 00:00 UTC",
+      "generatedAt": "2026-05-30T00:38:42Z",
+      "summary": "0 posts in the last hour. Top signal: No high-signal posts in the last hour.",
+      "highlights": [],
+      "topEntities": [],
+      "debates": [],
+      "recommendedPostIds": []
+    },
     {
       "id": "hourly-2026-05-28T05",
       "window": "1h",

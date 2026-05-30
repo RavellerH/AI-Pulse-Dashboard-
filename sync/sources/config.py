@@ -138,3 +138,29 @@ HN_QUERIES = [
 ]
 HN_MIN_POINTS = 50
 HN_MAX_RESULTS = 20
+
+# Reddit subreddits (public JSON API, no auth)
+REDDIT_SUBREDDITS: list[dict] = [
+    {"subreddit": "MachineLearning", "group": "Research"},
+    {"subreddit": "LocalLLaMA",      "group": "Builders"},
+    {"subreddit": "artificial",      "group": "Media"},
+]
+REDDIT_MIN_SCORE = 50
+REDDIT_MAX_PER_SUB = 8
+
+# YouTube channels (free RSS, channel_id required, no API key)
+YOUTUBE_CHANNELS: list[dict] = [
+    {"channelId": "UCbfYPyITQ-7l4upoX8nvctg", "displayName": "Two Minute Papers", "handle": "@TwoMinutePapers", "group": "Research"},
+    {"channelId": "UCZHmQk67mSJgfCCTn7xBfew", "displayName": "Yannic Kilcher",     "handle": "@YannicKilcher",   "group": "Research"},
+    {"channelId": "UCNJ1Ymd5yFuUPtn21xtRbbw", "displayName": "AI Explained",       "handle": "@AIExplained",     "group": "Media"},
+    {"channelId": "UCSHZKyawb77ixDdsGog4iWA", "displayName": "Lex Fridman",         "handle": "@lexfridman",      "group": "Media"},
+    {"channelId": "UC-7kGbyZ0DwT3SBeOuTDSLQ", "displayName": "Matt Wolfe",          "handle": "@mreflow",         "group": "Media"},
+]
+
+# Product Hunt (free RSS, no auth)
+PRODUCTHUNT_MAX_RESULTS = 10
+
+# Dev.to (free public API, no auth)
+DEVTO_TAGS = ["ai", "machinelearning", "llm"]
+DEVTO_PER_PAGE = 15
+DEVTO_MIN_REACTIONS = 10

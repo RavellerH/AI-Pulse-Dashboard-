@@ -1,4 +1,4 @@
-export type Platform = 'x' | 'rss' | 'bluesky' | 'arxiv' | 'hackernews'
+export type Platform = 'x' | 'rss' | 'bluesky' | 'arxiv' | 'hackernews' | 'reddit' | 'youtube' | 'producthunt' | 'devto'
 
 export type Group =
   | 'Research'

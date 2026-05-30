@@ -41,6 +41,14 @@ from .sources.config import (
     HN_QUERIES,
     HN_MIN_POINTS,
     HN_MAX_RESULTS,
+    REDDIT_SUBREDDITS,
+    REDDIT_MIN_SCORE,
+    REDDIT_MAX_PER_SUB,
+    YOUTUBE_CHANNELS,
+    PRODUCTHUNT_MAX_RESULTS,
+    DEVTO_TAGS,
+    DEVTO_PER_PAGE,
+    DEVTO_MIN_REACTIONS,
 )
 
 DATA_DIR = Path("public/data")
@@ -128,6 +136,10 @@ def fetch_all_other() -> list[dict]:
     from .sources.bluesky import fetch_bluesky
     from .sources.arxiv import fetch_arxiv
     from .sources.hackernews import fetch_hackernews
+    from .sources.reddit import fetch_reddit
+    from .sources.youtube import fetch_youtube
+    from .sources.producthunt import fetch_producthunt
+    from .sources.devto import fetch_devto
 
     posts: list[dict] = []
 
@@ -142,6 +154,18 @@ def fetch_all_other() -> list[dict]:
 
     print("\nHacker News…")
     posts.extend(fetch_hackernews(HN_QUERIES, HN_MIN_POINTS, HN_MAX_RESULTS))
+
+    print("\nReddit…")
+    posts.extend(fetch_reddit(REDDIT_SUBREDDITS, REDDIT_MIN_SCORE, REDDIT_MAX_PER_SUB))
+
+    print("\nYouTube…")
+    posts.extend(fetch_youtube(YOUTUBE_CHANNELS))
+
+    print("\nProduct Hunt…")
+    posts.extend(fetch_producthunt(PRODUCTHUNT_MAX_RESULTS))
+
+    print("\nDev.to…")
+    posts.extend(fetch_devto(DEVTO_TAGS, DEVTO_PER_PAGE, DEVTO_MIN_REACTIONS))
 
     return posts
 

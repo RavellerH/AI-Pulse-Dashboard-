@@ -1,13 +1,17 @@
 {
-  "generatedAt": "2026-05-28T05:18:05Z",
+  "generatedAt": "2026-05-30T00:38:42Z",
   "sourcePlatforms": [
+    "devto",
+    "youtube",
+    "reddit",
     "hackernews",
-    "arxiv",
     "rss",
+    "arxiv",
+    "x",
     "bluesky",
-    "x"
+    "producthunt"
   ],
-  "sourceCount": 18,
+  "sourceCount": 27,
   "postWindowHours": 168,
-  "dataVersion": "2026-05-28T05-18-05Z"
+  "dataVersion": "2026-05-30T00-38-42Z"
 }
