@@ -141,7 +141,14 @@ function RateLineChart({ data, baseline }: { data: RatePoint[]; baseline: number
   }, [])
 
   if (data.length < 2) {
-    return <div className="h-44 bg-surface-3 rounded-lg animate-pulse" />
+    return (
+      <div className="h-44 flex flex-col items-center justify-center gap-2">
+        <p className="text-sm text-text-muted">Chart data unavailable</p>
+        <p className="text-xs text-text-muted opacity-60">
+          Historical rates could not be fetched — live rate still active above
+        </p>
+      </div>
+    )
   }
 
   const H = 172
@@ -270,6 +277,7 @@ export default function RupiahPricing() {
   const [rateError, setRateError] = useState(false)
   const [historical, setHistorical] = useState<RatePoint[]>([])
   const [histLoading, setHistLoading] = useState(true)
+  const [histError, setHistError] = useState(false)
   const [peers, setPeers] = useState<Record<string, { now: number; then: number }>>({})
 
   // break-even slider
@@ -285,21 +293,46 @@ export default function RupiahPricing() {
   }, [])
 
   useEffect(() => {
-    const today = new Date()
-    const yr = new Date(today); yr.setFullYear(yr.getFullYear() - 1)
-    const fmt = (d: Date) => d.toISOString().split('T')[0]
-    const start = fmt(yr), end = fmt(today)
+    const CACHE_KEY = 'idr_hist_v1'
+    const todayStr = new Date().toISOString().split('T')[0]
 
-    fetch(`https://api.frankfurter.app/${start}..${end}?from=USD&to=IDR`)
-      .then(r => r.json())
+    // Return cached data if fetched today (makes subsequent loads instant)
+    try {
+      const cached = localStorage.getItem(CACHE_KEY)
+      if (cached) {
+        const { date, pts } = JSON.parse(cached) as { date: string; pts: RatePoint[] }
+        if (date === todayStr && pts.length > 1) {
+          setHistorical(pts)
+          setHistLoading(false)
+          return
+        }
+      }
+    } catch { /* ignore localStorage errors */ }
+
+    const yr = new Date(); yr.setFullYear(yr.getFullYear() - 1)
+    const start = yr.toISOString().split('T')[0]
+
+    const ctrl = new AbortController()
+    const timeout = setTimeout(() => ctrl.abort(), 8000)
+
+    fetch(`https://api.frankfurter.app/${start}..${todayStr}?from=USD&to=IDR`, {
+      signal: ctrl.signal,
+    })
+      .then(r => { if (!r.ok) throw new Error('API error'); return r.json() })
       .then(d => {
-        const pts: RatePoint[] = Object.entries(d.rates as Record<string, { IDR: number }>)
+        if (!d.rates || typeof d.rates !== 'object') throw new Error('No rates')
+        const pts: RatePoint[] = (Object.entries(d.rates) as [string, { IDR: number }][])
           .sort(([a], [b]) => a.localeCompare(b))
           .map(([date, v]) => ({ date, rate: Math.round(v.IDR) }))
+          .filter(p => Number.isFinite(p.rate))
+        if (pts.length < 2) throw new Error('Insufficient data')
         setHistorical(pts)
+        try { localStorage.setItem(CACHE_KEY, JSON.stringify({ date: todayStr, pts })) } catch { /* ignore */ }
       })
-      .catch(() => {})
-      .finally(() => setHistLoading(false))
+      .catch(() => setHistError(true))
+      .finally(() => { clearTimeout(timeout); setHistLoading(false) })
+
+    return () => { ctrl.abort(); clearTimeout(timeout) }
   }, [])
 
   useEffect(() => {
@@ -435,11 +468,18 @@ export default function RupiahPricing() {
         <div className="px-4 pt-3 pb-2">
           {histLoading
             ? <div className="h-44 bg-surface-3 rounded-lg animate-pulse" />
-            : <RateLineChart data={historical} baseline={BASELINE_RATE} />
+            : histError
+              ? (
+                <div className="h-44 flex flex-col items-center justify-center gap-2 border border-dashed border-border-default rounded-lg">
+                  <p className="text-sm text-text-muted">Chart unavailable</p>
+                  <p className="text-xs text-text-muted opacity-60">Could not reach Frankfurter API — live rate above is still accurate</p>
+                </div>
+              )
+              : <RateLineChart data={historical} baseline={BASELINE_RATE} />
           }
         </div>
         <p className="px-4 pb-3 text-[11px] text-text-muted">
-          Hover chart for daily rate · baseline Jan 2024 shown as dashed line · source: Frankfurter API
+          Hover for daily rate · Jan 2024 baseline dashed · cached daily · source: Frankfurter API
         </p>
       </div>
 
