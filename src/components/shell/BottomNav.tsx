@@ -6,6 +6,7 @@ const NAV = [
   { to: '/people', label: 'People', icon: PeopleIcon },
   { to: '/topics', label: 'Topics', icon: TopicsIcon },
   { to: '/briefings', label: 'Briefs', icon: BriefIcon },
+  { to: '/rupiah',    label: 'IDR',    icon: RupiahIcon },
 ]
 
 export default function BottomNav() {
@@ -71,6 +72,15 @@ function TopicsIcon({ className }: { className?: string }) {
     <svg className={className} viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6">
       <path d="M10 3L17 10L10 17L3 10L10 3Z" />
       <circle cx="10" cy="10" r="2" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+function RupiahIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 20 20" fill="none">
+      <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M7 7h5.5a2 2 0 0 1 0 4H7M7 11h6M9 11L11 14" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }

@@ -9,6 +9,7 @@ import PersonDetail from './pages/PersonDetail'
 import Topics from './pages/Topics'
 import Briefings from './pages/Briefings'
 import About from './pages/About'
+import RupiahPricing from './pages/RupiahPricing'
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
               <Route path="/people/:handle" element={<PersonDetail />} />
               <Route path="/topics" element={<Topics />} />
               <Route path="/briefings" element={<Briefings />} />
+              <Route path="/rupiah" element={<RupiahPricing />} />
               <Route path="/about" element={<About />} />
             </Routes>
           </main>

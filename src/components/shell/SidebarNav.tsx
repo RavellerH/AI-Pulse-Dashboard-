@@ -6,6 +6,7 @@ const NAV_ITEMS = [
   { to: '/people', label: 'People', icon: PeopleIcon },
   { to: '/topics', label: 'Topics', icon: TopicsIcon },
   { to: '/briefings', label: 'Briefings', icon: BriefingsIcon },
+  { to: '/rupiah', label: 'Rp & AI Costs', icon: RupiahIcon },
   { to: '/about', label: 'About', icon: AboutIcon },
 ]
 
@@ -105,6 +106,15 @@ function BriefingsIcon({ className }: { className?: string }) {
     <svg className={className} viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="2" y="1.5" width="12" height="13" rx="1.5" />
       <path d="M5 5.5h6M5 8.5h6M5 11.5h4" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function RupiahIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 16 16" fill="none">
+      <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M5.5 5.5H10a1.5 1.5 0 0 1 0 3H5.5M5.5 8.5h5M7.5 8.5L9.5 11" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
